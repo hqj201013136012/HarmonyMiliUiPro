@@ -55,6 +55,15 @@ export struct BannerCards {
                         right: { anchor: "__container__", align: HorizontalAlign.End },
                       })
                   }
+                  .onClick(() => {
+                    if(type.urlpath!=''){
+                      router.pushUrl({
+                        url: type.urlpath
+                      })
+                    }
+
+                  })
+
                 }
                 .height("100%")
                 .width('100%')

@@ -3,6 +3,7 @@ export class CardItemType {
   "type": string = ""
   "name": string
   "imageSrc": ResourceStr
+  "urlpath": string
 }
 
 // 快捷键列表的Item数据结构
@@ -30,58 +31,79 @@ export class SelectShortCutItemData {
 
 }
 
+// 安防
+export const HOME_CARD_SAFETY_TYPE="1"
+// 对讲
+export const HOME_CARD_INTERCOM_TYPE="2"
+// 预览
+export const HOME_CARD_MONITOR_TYPE="3"
+// 招梯
+export const HOME_CARD_LADDER_TYPE="4"
+// 留影留言
+export const HOME_CARD_LYLY_MESSAGE_TYPE="5"
+// 日历
+export const HOME_CARD_CALENDAR_TYPE="6"
+// 设置
+export const HOME_CARD_SETTING_TYPE="7"
+// 添加
+export const HOME_CARD_ADD_TYPE="10"
+
 // 首页Banner默认的卡片列表
 export const CardTypeList: CardItemType[] = [
   {
-    "type": "1",
+    "type": HOME_CARD_SAFETY_TYPE,
     "name": "安防",
-    "imageSrc": $r('app.media.icon_safety_athome')
+    "imageSrc": $r('app.media.icon_safety_athome'),
+    "urlpath":""
   },
   {
-    "type": "2",
+    "type": HOME_CARD_INTERCOM_TYPE,
     "name": "对讲",
-    "imageSrc": $r('app.media.icon_intercom')
+    "imageSrc": $r('app.media.icon_intercom'),
+    "urlpath":""
   },
   {
-    "type": "3",
+    "type": HOME_CARD_MONITOR_TYPE,
     "name": "预览",
-    "imageSrc": $r('app.media.icon_monitor')
+    "imageSrc": $r('app.media.icon_monitor'),
+    "urlpath":""
   },
   {
-    "type": "4",
+    "type": HOME_CARD_LADDER_TYPE,
     "name": "招梯",
-    "imageSrc": $r('app.media.icon_ladder')
+    "imageSrc": $r('app.media.icon_ladder'),
+    "urlpath":""
   },
   {
-    "type": "5",
+    "type": HOME_CARD_LYLY_MESSAGE_TYPE,
     "name": "留影留言",
-    "imageSrc": $r('app.media.icon_message')
+    "imageSrc": $r('app.media.icon_message'),
+    "urlpath":""
   },
   {
-    "type": "6",
+    "type": HOME_CARD_CALENDAR_TYPE,
     "name": "日历",
-    "imageSrc": $r('app.media.icon_calendar')
+    "imageSrc": $r('app.media.icon_calendar'),
+    "urlpath":""
   },
   {
-    "type": "7",
+    "type": HOME_CARD_SETTING_TYPE,
     "name": "设置",
-    "imageSrc": $r('app.media.icon_setting')
+    "imageSrc": $r('app.media.icon_setting'),
+    "urlpath":"pages/SettingHomePage"
   },
   {
-    "type": "10",
+    "type": HOME_CARD_ADD_TYPE,
     "name": "",
-    "imageSrc": $r('app.media.icon_add')
+    "imageSrc": $r('app.media.icon_add'),
+    "urlpath":""
   },
 
 ]
 
 // 快捷卡片选择类型列表
 export const ShortCutTypeList: ShortCutItemType[] = [
-  {
-    "type": "6",
-    "name": "安防报警",
-    "imageSrc": $r('app.media.icon_s_alarm_item')
-  },
+
   {
     "type": "1",
     "name": "呼叫管理员",
@@ -107,7 +129,11 @@ export const ShortCutTypeList: ShortCutItemType[] = [
     "name": "网络IPC",
     "imageSrc": $r('app.media.icon_ipc_item')
   },
-
+  {
+    "type": "6",
+    "name": "安防报警",
+    "imageSrc": $r('app.media.icon_s_alarm_item')
+  },
 
 ]
 

@@ -2,6 +2,7 @@
   "src": [
     "pages/Index",
     "pages/ShotCutList",
-    "pages/ShortCutSelect"
+    "pages/ShortCutSelect",
+    "pages/SettingHomePage"
   ]
 }

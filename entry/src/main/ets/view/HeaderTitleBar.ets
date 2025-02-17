@@ -17,6 +17,9 @@ export struct HeaderTitleBar{
           left: { anchor: "__container__", align: HorizontalAlign.Start },
         })
         .id('back_iv')
+        .onClick(() =>{
+          router.back()
+        })
 
       Text(this.title)
         .fontColor($r('sys.color.white'))

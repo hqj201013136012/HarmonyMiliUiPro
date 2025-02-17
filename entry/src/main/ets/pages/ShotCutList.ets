@@ -8,7 +8,7 @@ struct ShotCutList {
   @State message: string = 'Hello World';
 
   build() {
-    Column() {
+    RelativeContainer() {
       HeaderTitleBar({ title: '添加快捷方式' })
 
       List({ space: 20, initialIndex: 0 }) {
@@ -67,6 +67,11 @@ struct ShotCutList {
       .width('100%')
       .backgroundColor(0x00000000)
       .margin({top:40})
+      .alignRules({
+        top: { anchor: "header_rl", align: VerticalAlign.Bottom },
+        left:{ anchor: "__container__", align: HorizontalAlign.Start },
+        bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
+      })
 
     }
     .height('100%')

@@ -3,7 +3,6 @@ import { SelectShortCutItemData } from "../viewmodel/ShotCutCardData"
 /**
  * 快捷方式的选择Item组件
  */
-@Preview
 @Component
 export struct ShortCutSelectItem {
   @Prop itemData:SelectShortCutItemData
