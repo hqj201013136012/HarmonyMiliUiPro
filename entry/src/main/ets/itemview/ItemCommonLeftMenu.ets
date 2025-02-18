@@ -1,7 +1,7 @@
-import { SetHomeLeftMenuItemData } from "../viewmodel/SetData"
+import { SetHomeLeftMenuItemData } from "../viewmodel/SettingData"
 
 @Component
-export struct ItemSetHomeLeftMenu {
+export struct ItemCommonLeftMenu {
   @ObjectLink itemData: SetHomeLeftMenuItemData
 
   build() {

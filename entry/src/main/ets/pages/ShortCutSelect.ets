@@ -1,4 +1,4 @@
-import { HeaderTitleBar } from '../view/HeaderTitleBar'
+import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar'
 import { router } from '@kit.ArkUI';
 import { SelectShortCutItemData, ShortCutAlarmTypeList, ShortCutSelectTypeList } from '../viewmodel/ShotCutCardData';
 import { ShortCutSelectItem } from '../itemview/ShortCutSelectItem';

@@ -3,6 +3,7 @@
     "pages/Index",
     "pages/ShotCutList",
     "pages/ShortCutSelect",
-    "pages/SettingHomePage"
+    "pages/SettingHomePage",
+    "pages/IntercomHomePage"
   ]
 }

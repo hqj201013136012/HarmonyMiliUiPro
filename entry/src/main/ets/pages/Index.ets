@@ -1,7 +1,7 @@
-import { BannerCards } from '../view/BannerCards'
-import { HomeMenu } from '../view/HomeMenu';
-import { HomeStatus } from '../view/HomeStatus';
-import { HomeTimeContent } from '../view/HomeTimeContent';
+import { BannerCards } from '../view/launcher/BannerCards'
+import { HomeMenu } from '../view/launcher/HomeMenu';
+import { HomeStatus } from '../view/launcher/HomeStatus';
+import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 
 @Entry
 @Component

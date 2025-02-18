@@ -1,31 +1,30 @@
-import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar';
-import { SetHomeLeftMenu } from '../view/setting/SetHomeLeftMenu';
-import { SetHomeRightContent } from '../view/setting/SetHomeRightContent';
-import { SET_USER_TYPE } from '../viewmodel/SettingData';
+import { IntercomHomeLeftMenu } from '../view/intercom/IntercomHomeLeftMenu'
+import { IntercomHomeRightContent } from '../view/intercom/IntercomHomeRightContent'
+import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar'
+import { CALL_CENTER_TYPE } from '../viewmodel/InterComData'
 
 @Entry
 @Component
-struct SettingHomePage {
-@State menuTabStatus:string=SET_USER_TYPE
+struct IntercomHomePage {
+  @State menuTabStatus:string=CALL_CENTER_TYPE
 
   build() {
     RelativeContainer() {
-      HeaderTitleBar({ title: "设置" })
-      SetHomeLeftMenu({itemType:this.menuTabStatus})
+      HeaderTitleBar({ title: "对讲" })
+      IntercomHomeLeftMenu({itemType:this.menuTabStatus})
         .alignRules({
           top: { anchor: "header_rl", align: VerticalAlign.Bottom },
           left:{ anchor: "__container__", align: HorizontalAlign.Start },
         })
         .id('left_menu')
 
-      SetHomeRightContent({menuType:this.menuTabStatus})
+      IntercomHomeRightContent({menuType:this.menuTabStatus})
         .alignRules({
-          top: { anchor: "header_rl", align: VerticalAlign.Bottom },
+          top: { anchor: "__container__", align: VerticalAlign.Top },
           left:{ anchor: "left_menu", align: HorizontalAlign.End },
           right: { anchor: "__container__", align: HorizontalAlign.End },
           bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
         })
-        .margin({top:48,bottom:48})
 
 
     }

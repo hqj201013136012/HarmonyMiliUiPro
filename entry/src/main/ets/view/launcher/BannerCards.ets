@@ -1,5 +1,5 @@
 import { router } from "@kit.ArkUI"
-import { CardItemType, CardTypeList } from "../viewmodel/ShotCutCardData"
+import { CardItemType, CardTypeList } from "../../viewmodel/ShotCutCardData"
 import { CardType } from "@kit.VisionKit"
 
 @Component

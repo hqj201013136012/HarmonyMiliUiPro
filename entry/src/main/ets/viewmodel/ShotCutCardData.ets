@@ -27,8 +27,6 @@ export class SelectShortCutItemData {
     this.imageSrc = imageSrc
     this.name = name
   }
-
-
 }
 
 // 安防
@@ -60,7 +58,7 @@ export const CardTypeList: CardItemType[] = [
     "type": HOME_CARD_INTERCOM_TYPE,
     "name": "对讲",
     "imageSrc": $r('app.media.icon_intercom'),
-    "urlpath":""
+    "urlpath":"pages/IntercomHomePage"
   },
   {
     "type": HOME_CARD_MONITOR_TYPE,
