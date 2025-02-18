@@ -52,7 +52,7 @@ export const CardTypeList: CardItemType[] = [
     "type": HOME_CARD_SAFETY_TYPE,
     "name": "安防",
     "imageSrc": $r('app.media.icon_safety_athome'),
-    "urlpath":""
+    "urlpath":"pages/SecurityHomePage"
   },
   {
     "type": HOME_CARD_INTERCOM_TYPE,

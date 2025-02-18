@@ -5,6 +5,7 @@
     "pages/ShortCutSelect",
     "pages/SettingHomePage",
     "pages/IntercomHomePage",
-    "pages/CallPage"
+    "pages/CallPage",
+    "pages/SecurityHomePage"
   ]
 }
