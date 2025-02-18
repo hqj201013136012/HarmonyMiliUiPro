@@ -1,5 +1,6 @@
 import { ItemCallView } from "../../itemview/ItemCallView"
 import { CallListItemData } from "../../viewmodel/InterComData"
+import { router } from "@kit.ArkUI"
 
 @Component
 export struct CallCenterList {
@@ -52,6 +53,11 @@ export struct CallCenterList {
                 }
                 .height("100%")
                 .width('100%')
+                .onClick(()=>{
+                  router.pushUrl({
+                    url: 'pages/CallPage',
+                  })
+                })
               })
             }
             .columnsTemplate('1fr 1fr 1fr 1fr')

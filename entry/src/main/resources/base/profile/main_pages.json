@@ -4,6 +4,7 @@
     "pages/ShotCutList",
     "pages/ShortCutSelect",
     "pages/SettingHomePage",
-    "pages/IntercomHomePage"
+    "pages/IntercomHomePage",
+    "pages/CallPage"
   ]
 }

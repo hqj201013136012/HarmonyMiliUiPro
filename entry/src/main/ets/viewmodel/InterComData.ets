@@ -50,3 +50,64 @@ export class CallListItemData {
     this.name = name
   }
 }
+
+// 未接
+export const CALL_RECORD_MISS_TYPE = "1"
+// 呼入
+export const CALL_RECORD_CALLIN_TYPE = "2"
+// 呼出
+export const CALL_RECORD_CALLOUT_TYPE = "3"
+// 呼叫列表Item实体
+@Observed
+export class CallRecordItemData {
+  callType: string
+  devNo: string
+  devType: string
+  callTime: string
+  talkTime: string
+  isRead: boolean
+  imageSrc:ResourceStr
+
+  constructor(
+    callType: string,
+    devNo: string,
+    devType: string,
+    callTime: string,
+    talkTime: string,
+    isRead: boolean,
+  imageSrc:ResourceStr) {
+    this.callType = callType
+    this.devNo = devNo
+    this.devType = devType
+    this.callTime = callTime
+    this.talkTime = talkTime
+    this.isRead = isRead
+    this.imageSrc = imageSrc
+  }
+}
+
+// 未接记录
+export const callRecordMissList: CallRecordItemData[] = [
+  new CallRecordItemData(CALL_RECORD_MISS_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_call_missed')),
+  new CallRecordItemData(CALL_RECORD_MISS_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_call_missed')),
+  new CallRecordItemData(CALL_RECORD_MISS_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_call_missed')),
+  new CallRecordItemData(CALL_RECORD_MISS_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_call_missed')),
+]
+
+// 呼入记录
+export const callRecordCallInList: CallRecordItemData[] = [
+  new CallRecordItemData(CALL_RECORD_CALLIN_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_incomingcall')),
+  new CallRecordItemData(CALL_RECORD_CALLIN_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_incomingcall')),
+  new CallRecordItemData(CALL_RECORD_CALLIN_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_incomingcall')),
+
+]
+
+// 呼出记录
+export const callRecordCallOutList: CallRecordItemData[] = [
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_callup')),
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",false,$r('app.media.icon_callup')),
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
+  new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
+]

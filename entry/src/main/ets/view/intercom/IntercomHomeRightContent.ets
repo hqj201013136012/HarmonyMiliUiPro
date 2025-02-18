@@ -1,6 +1,7 @@
 import { CALL_CENTER_TYPE, CALL_EXTENSION_TYPE, CALL_RECORD_TYPE, CALL_USER_TYPE } from "../../viewmodel/InterComData"
 import { CallCenterList } from "./CallCenterList"
 import { CallExtensionList } from "./CallExtensionList"
+import { CallRecordClassify } from "./CallRecordClassify"
 
 
 @Component
@@ -19,6 +20,7 @@ export struct IntercomHomeRightContent {
         CallExtensionList({type :this.menuType})
 
       } else if (this.menuType == CALL_RECORD_TYPE) {
+        CallRecordClassify({type :this.menuType})
       }
     }
 

@@ -174,23 +174,4 @@ export const ShortCutAlarmTypeList: SelectShortCutItemData[] = [
   new SelectShortCutItemData("61","在家撤防",$r('app.media.icon_athome_select')),
   new SelectShortCutItemData("62","外出布防",$r('app.media.icon_goout_select')),
   new SelectShortCutItemData("63","在家撤防",$r('app.media.icon_atnight_select')),
-  // {
-  //   "type": "61",
-  //   "name": "在家撤防",
-  //   "isSelect":false,
-  //   "imageSrc": $r('app.media.icon_athome_select')
-  // },
-  // {
-  //   "type": "62",
-  //   "name": "外出布防",
-  //   "isSelect":false,
-  //   "imageSrc": $r('app.media.icon_goout_select')
-  // },
-  // {
-  //   "type": "63",
-  //   "name": "夜间布防",
-  //   "isSelect":false,
-  //   "imageSrc": $r('app.media.icon_atnight_select')
-  // },
-
 ]

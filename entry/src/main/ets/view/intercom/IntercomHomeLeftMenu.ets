@@ -3,11 +3,7 @@ import { CALL_CENTER_TYPE,
   CALL_EXTENSION_TYPE,
   CALL_RECORD_TYPE,
   CALL_USER_TYPE, IntercomHomeLeftMenuItemData } from '../../viewmodel/InterComData';
-import { SetHomeLeftMenuItemData,
-  SET_ENGINE_TYPE,
-  SET_SECURITY_TYPE,
-  SET_SYS_INFO_TYPE,
-  SET_USER_TYPE } from '../../viewmodel/SettingData';
+
 
 @Component
 export struct IntercomHomeLeftMenu {

@@ -46,22 +46,22 @@ export default class EntryAbility extends UIAbility {
         console.error(`Failed to set the navigation indicator to be invisible. Code is ${err.code}, message is ${err.message}`);
       });
 
-      AppStorage.setOrCreate('date', getCurrentDateAndWeekday());
-
-      setInterval(()=>{
-        let time: string = new Date().toLocaleTimeString();
-        const currentDate = new Date();
-        const hour = currentDate.getHours();
-        const mins = currentDate.getMinutes();
-
-        if (hour <= 12) {
-          AppStorage.setOrCreate('time_stage', '上午');
-        } else {
-          AppStorage.setOrCreate('time_stage', '下午');
-        }
-        AppStorage.setOrCreate('time', hour+":"+mins);
-
-      },1000)
+      // AppStorage.setOrCreate('date', getCurrentDateAndWeekday());
+      //
+      // setInterval(()=>{
+      //   let time: string = new Date().toLocaleTimeString();
+      //   const currentDate = new Date();
+      //   const hour = currentDate.getHours();
+      //   const mins = currentDate.getMinutes();
+      //
+      //   if (hour <= 12) {
+      //     AppStorage.setOrCreate('time_stage', '上午');
+      //   } else {
+      //     AppStorage.setOrCreate('time_stage', '下午');
+      //   }
+      //   AppStorage.setOrCreate('time', hour+":"+mins);
+      //
+      // },1000)
 
     });
 
@@ -84,31 +84,31 @@ export default class EntryAbility extends UIAbility {
   }
 }
 
-function getCurrentDateAndWeekday():string {
-  // 获取当前日期和时间
-  const now = new Date();
-
-  // 获取星期几，Date.getDay()返回的是0（周日）到6（周六）之间的数字
-  const weekday = now.getDay();
-  let weekdayName:string='';
-
-  // 转换为星期的中文名称
-  switch (weekday) {
-    case 0: weekdayName = "星期日"; break;
-    case 1: weekdayName = "星期一"; break;
-    case 2: weekdayName = "星期二"; break;
-    case 3: weekdayName = "星期三"; break;
-    case 4: weekdayName = "星期四"; break;
-    case 5: weekdayName = "星期五"; break;
-    case 6: weekdayName = "星期六"; break;
-  }
-
-  // 获取日期的其他部分，如年、月、日
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1; // 月份是从0开始的，所以要加1
-  const date = now.getDate();
-
-  // 返回当前日期和星期几的字符串表示
-  return `${month}月${date}日 ${weekdayName}`;
-}
+// function getCurrentDateAndWeekday():string {
+//   // 获取当前日期和时间
+//   const now = new Date();
+//
+//   // 获取星期几，Date.getDay()返回的是0（周日）到6（周六）之间的数字
+//   const weekday = now.getDay();
+//   let weekdayName:string='';
+//
+//   // 转换为星期的中文名称
+//   switch (weekday) {
+//     case 0: weekdayName = "星期日"; break;
+//     case 1: weekdayName = "星期一"; break;
+//     case 2: weekdayName = "星期二"; break;
+//     case 3: weekdayName = "星期三"; break;
+//     case 4: weekdayName = "星期四"; break;
+//     case 5: weekdayName = "星期五"; break;
+//     case 6: weekdayName = "星期六"; break;
+//   }
+//
+//   // 获取日期的其他部分，如年、月、日
+//   const year = now.getFullYear();
+//   const month = now.getMonth() + 1; // 月份是从0开始的，所以要加1
+//   const date = now.getDate();
+//
+//   // 返回当前日期和星期几的字符串表示
+//   return `${month}月${date}日 ${weekdayName}`;
+// }
 

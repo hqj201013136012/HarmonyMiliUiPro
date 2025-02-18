@@ -1,9 +1,9 @@
 @Preview
 @Component
 export struct HomeTimeContent {
-  @Prop timeStr: string = ''
-  @Prop dateStr: string = ''
-  @Prop timeStage: string = ''
+  // @Prop timeStr: string = ''
+  // @Prop dateStr: string = ''
+  // @Prop timeStage: string = ''
 
   build() {
     // 中间时间区域
@@ -13,12 +13,26 @@ export struct HomeTimeContent {
         .margin({ left: 30, top: 30 })
         .fontColor('#ffffff')
 
-      Text(this.timeStage)
+      // Text(this.timeStage)
+      //   .width(80)
+      //   .height(45)
+      //   .fontSize(25)
+      //   .margin({ right: 30, top: 30 })
+      //   .textAlign(TextAlign.Center)
+      //   .fontColor('#ffffff')
+      //   .backgroundColor(0x313131)
+      //   .borderRadius(5)
+      //   .alignRules({
+      //     top: { anchor: "__container__", align: VerticalAlign.Top },
+      //     right: { anchor: "__container__", align: HorizontalAlign.End }
+      //   })
+
+      TextClock()
+        .format("aa")
         .width(80)
         .height(45)
         .fontSize(25)
         .margin({ right: 30, top: 30 })
-        .textAlign(TextAlign.Center)
         .fontColor('#ffffff')
         .backgroundColor(0x313131)
         .borderRadius(5)
@@ -27,16 +41,36 @@ export struct HomeTimeContent {
           right: { anchor: "__container__", align: HorizontalAlign.End }
         })
 
-      Text(this.timeStr)
+      TextClock()
         .fontSize(112)
         .fontColor('#ffffff')
+        .format("HH:mm")
+        .dateTimeOptions({ hour: "2-digit" })
         .alignRules({
           center: { anchor: "__container__", align: VerticalAlign.Center },
           middle: { anchor: "__container__", align: HorizontalAlign.Center },
         })
         .id("time_tv")
 
-      Text(this.dateStr)
+      // Text(this.timeStr)
+      //   .fontSize(112)
+      //   .fontColor('#ffffff')
+      //   .alignRules({
+      //     center: { anchor: "__container__", align: VerticalAlign.Center },
+      //     middle: { anchor: "__container__", align: HorizontalAlign.Center },
+      //   })
+      //   .id("time_tv")
+
+      // Text(this.dateStr)
+      //   .fontSize(27)
+      //   .fontColor('#ffffff')
+      //   .alignRules({
+      //     top: { anchor: "time_tv", align: VerticalAlign.Bottom },
+      //     middle: { anchor: "__container__", align: HorizontalAlign.Center },
+      //   })
+
+      TextClock()
+        .format("M月d日 EEEE")
         .fontSize(27)
         .fontColor('#ffffff')
         .alignRules({

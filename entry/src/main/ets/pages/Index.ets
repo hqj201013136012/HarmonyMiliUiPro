@@ -6,10 +6,10 @@ import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 @Entry
 @Component
 struct Index {
-  @StorageProp('time') timeData: string = ''
-  @StorageProp('date') dateData: string = ''
-  @StorageProp('time_stage') timeStageData: string = ''
-  @State @Watch('change1') num: number = 10;
+  // @StorageProp('time') timeData: string = ''
+  // @StorageProp('date') dateData: string = ''
+  // @StorageProp('time_stage') timeStageData: string = ''
+  // @State @Watch('change1') num: number = 10;
 
   change1() {
     console.log(`xxx`);
@@ -22,7 +22,7 @@ struct Index {
       HomeStatus()
 
       // 首页时间组件
-      HomeTimeContent({ timeStr: this.timeData, dateStr: this.dateData, timeStage: this.timeStageData })
+      HomeTimeContent()
 
       // 免打扰，紧急救援，呼叫中心
       HomeMenu()
