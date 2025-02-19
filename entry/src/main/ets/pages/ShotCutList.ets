@@ -5,7 +5,6 @@ import { router } from '@kit.ArkUI';
 @Entry
 @Component
 struct ShotCutList {
-  @State message: string = 'Hello World';
 
   build() {
     RelativeContainer() {

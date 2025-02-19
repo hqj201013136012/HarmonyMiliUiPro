@@ -80,7 +80,7 @@ export const HOME_CARD_ADD_TYPE = "10"
 export const defaultCardTypeList: CardItemType[] = [
   new CardItemType(HOME_CARD_SAFETY_TYPE, "安防", $r('app.media.icon_safety_athome'), "pages/SecurityHomePage"),
   new CardItemType(HOME_CARD_INTERCOM_TYPE, "对讲", $r('app.media.icon_intercom'), "pages/IntercomHomePage"),
-  new CardItemType(HOME_CARD_MONITOR_TYPE, "预览", $r('app.media.icon_monitor'), ""),
+  new CardItemType(HOME_CARD_MONITOR_TYPE, "预览", $r('app.media.icon_monitor'), "pages/MonitorHomePage"),
   new CardItemType(HOME_CARD_LADDER_TYPE, "招梯", $r('app.media.icon_ladder'), ""),
   new CardItemType(HOME_CARD_LYLY_MESSAGE_TYPE, "留影留言", $r('app.media.icon_message'), ""),
   new CardItemType(HOME_CARD_CALENDAR_TYPE, "日历", $r('app.media.icon_calendar'), ""),

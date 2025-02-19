@@ -113,3 +113,28 @@ export const callRecordCallOutList: CallRecordItemData[] = [
   new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
   new CallRecordItemData(CALL_RECORD_CALLOUT_TYPE,"1栋1单元梯口机1","1","2023.06.01 14:00:17","",true,$r('app.media.icon_callup')),
 ]
+
+// 预览门前
+export const MONITOR_DOOR_TYPE = "1"
+// 预览梯口
+export const MONITOR_LADDER_TYPE = "2"
+// 预览区口
+export const MONITOR_CLASSIFY_TYPE = "3"
+// 预览IPC
+export const MONITOR_IPC_TYPE = "4"
+
+// 呼叫列表Item实体
+@Observed
+export class MonitorDeviceItemData {
+  type: string = ""
+  name: string
+  imageSrc: ResourceStr
+
+  constructor(type: string,
+    name: string,
+    imageSrc: ResourceStr) {
+    this.type = type
+    this.imageSrc = imageSrc
+    this.name = name
+  }
+}
