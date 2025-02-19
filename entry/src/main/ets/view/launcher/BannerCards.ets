@@ -1,5 +1,5 @@
 import { router } from "@kit.ArkUI"
-import { CardItemType, CardTypeList } from "../../viewmodel/ShotCutCardData"
+import { CardItemType, defaultCardTypeList, HOME_CARD_ADD_TYPE } from "../../viewmodel/ShotCutCardData"
 import { CardType } from "@kit.VisionKit"
 
 @Component
@@ -8,8 +8,11 @@ export struct BannerCards {
 
   aboutToAppear(): void {
     this.defaultBannerList =
-      [new BannerClass('0', Array<CardItemType>(CardTypeList[0], CardTypeList[1], CardTypeList[2], CardTypeList[3])),
-        new BannerClass('1', Array<CardItemType>(CardTypeList[4], CardTypeList[5], CardTypeList[6], CardTypeList[7]))]
+      [new BannerClass('0', Array<CardItemType>(defaultCardTypeList[0], defaultCardTypeList[1], defaultCardTypeList[2],
+        defaultCardTypeList[3])),
+        new BannerClass('1', Array<CardItemType>(defaultCardTypeList[4], defaultCardTypeList[5], defaultCardTypeList[6],
+          defaultCardTypeList[7])),
+        new BannerClass('2', Array<CardItemType>(defaultCardTypeList[8]))]
   }
 
   build() {
@@ -18,7 +21,7 @@ export struct BannerCards {
         ForEach(this.defaultBannerList, (item: BannerClass, index: number) => {
           Grid() {
             ForEach(item.types, (type: CardItemType) => {
-              if (type.name == '') {
+              if (type.type == HOME_CARD_ADD_TYPE) {
                 GridItem() {
                   RelativeContainer() {
                     Image(type.imageSrc)
@@ -56,14 +59,13 @@ export struct BannerCards {
                       })
                   }
                   .onClick(() => {
-                    if(type.urlpath!=''){
+                    if (type.urlpath != '') {
                       router.pushUrl({
                         url: type.urlpath
                       })
                     }
 
                   })
-
                 }
                 .height("100%")
                 .width('100%')

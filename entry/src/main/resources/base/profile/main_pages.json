@@ -6,6 +6,7 @@
     "pages/SettingHomePage",
     "pages/IntercomHomePage",
     "pages/CallPage",
-    "pages/SecurityHomePage"
+    "pages/SecurityHomePage",
+    "pages/MessageListPage"
   ]
 }

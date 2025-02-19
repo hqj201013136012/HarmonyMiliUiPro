@@ -35,30 +35,3 @@ export class SetHomeLeftMenuItemData {
     this.imageSrc = imageSrc
   }
 }
-
-// export const SetHomeLeftMenuList: SetHomeLeftMenuItemData[] = [
-//   new SetHomeLeftMenuItemData(SET_USER_TYPE,
-//     true,
-//     false,
-//     false,
-//     "用户设置",
-//     $r('app.media.icon_s_leftmenu_usersetting')),
-//   new SetHomeLeftMenuItemData(SET_SECURITY_TYPE,
-//     false,
-//     false,
-//     false,
-//     "安防设置",
-//     $r('app.media.icon_leftmenu_safetysetting')),
-//   new SetHomeLeftMenuItemData(SET_ENGINE_TYPE,
-//     false,
-//     false,
-//     false,
-//     "工程设置",
-//     $r('app.media.icon_leftmenu_engine_set')),
-//   new SetHomeLeftMenuItemData(SET_SYS_INFO_TYPE,
-//     false,
-//     false,
-//     false,
-//     "系统信息",
-//     $r('app.media.icon_leftmenu_systeminfo')),
-// ]

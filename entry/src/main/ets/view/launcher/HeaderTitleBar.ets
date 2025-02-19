@@ -52,8 +52,5 @@ export struct HeaderTitleBar{
     .margin({top:30})
     .backgroundColor('#000000')
     .id('header_rl')
-    .onClick(()=>{
-      router.back()
-    })
   }
 }

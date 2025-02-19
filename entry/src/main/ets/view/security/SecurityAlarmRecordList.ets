@@ -1,17 +1,18 @@
 import { SecurityAlarmRecordItemData, securityAlarmRecordList } from "../../viewmodel/SecurityData"
 import { ItemSecurityAlarm } from "../../itemview/ItemSecurityAlarm"
+import { UnReadRecordView } from "../../common/view/UnReadRecordView"
 
 @Component
 export struct SecurityAlarmRecordList {
   @State recordList: Array<SecurityAlarmRecordItemData> = []
   @State type: string = ''
-  @State unReadeNum: number = 0
+  @State unReadNum: number = 0
 
   aboutToAppear(): void {
     this.recordList = securityAlarmRecordList
     this.recordList.forEach(element => {
       if(element.isRead==false){
-        this.unReadeNum++
+        this.unReadNum++
       }
     });
   }
@@ -36,24 +37,8 @@ export struct SecurityAlarmRecordList {
       .margin({ top: 35 })
       .justifyContent(FlexAlign.End)
       .id('top_right_rw')
-
-      Row(){
-        Text("共有")
-          .fontColor('#ffffff')
-          .fontSize(22)
-
-        Text(this.unReadeNum+"")
-          .fontColor('#ffffff')
-          .fontSize(36)
-          .padding({bottom:4,left:2,right:2})
-
-        Text("未读记录")
-          .fontColor('#ffffff')
-          .fontSize(22)
-      }
-      .width('100%')
-      .height(55)
-      .justifyContent(FlexAlign.Start)
+      // 未读记录数
+      UnReadRecordView({num:this.unReadNum})
 
       Stack() {
         Column() {

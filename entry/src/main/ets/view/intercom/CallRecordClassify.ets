@@ -10,12 +10,13 @@ import {
   CALL_RECORD_MISS_TYPE
 } from "../../viewmodel/InterComData"
 import { CallRecordItemView } from "../../itemview/CallRecordItemView"
+import { UnReadRecordView } from "../../common/view/UnReadRecordView"
 
 @Component
 export struct CallRecordClassify {
   @State callRecordList: Array<CallRecordItemData> = []
   @State type: string = ''
-  @State unReadeNum: number = 0
+  @State unReadNum: number = 0
   // 列表类型
   @State selectType: string = CALL_RECORD_ALL_TYPE
 
@@ -25,7 +26,7 @@ export struct CallRecordClassify {
     this.callRecordList = this.callRecordList.concat(callRecordCallOutList)
     this.callRecordList.forEach(element => {
       if(element.isRead==false){
-        this.unReadeNum++
+        this.unReadNum++
       }
     });
   }
@@ -89,28 +90,11 @@ export struct CallRecordClassify {
       .margin({ top: 35 })
       .justifyContent(FlexAlign.End)
       .id('top_right_rw')
-
-      Row(){
-        Text("共有")
-          .fontColor('#ffffff')
-          .fontSize(22)
-
-        Text(this.unReadeNum+"")
-          .fontColor('#ffffff')
-          .fontSize(36)
-          .padding({bottom:4,left:2,right:2})
-
-        Text("未读记录")
-          .fontColor('#ffffff')
-          .fontSize(22)
-      }
-      .width('100%')
-      .height(55)
-      .justifyContent(FlexAlign.Start)
+      // 未读记录数
+      UnReadRecordView({num:this.unReadNum})
 
       Stack() {
         Column() {
-
           List({ space: 14 }) {
             ForEach(this.callRecordList, (item: CallRecordItemData) => {
               ListItem() {
