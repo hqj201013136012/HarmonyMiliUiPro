@@ -3,7 +3,11 @@ import {
   callRecordCallInList,
   callRecordCallOutList,
   CallRecordItemData,
-  callRecordMissList
+  callRecordMissList,
+  CALL_RECORD_ALL_TYPE,
+  CALL_RECORD_CALLIN_TYPE,
+  CALL_RECORD_CALLOUT_TYPE,
+  CALL_RECORD_MISS_TYPE
 } from "../../viewmodel/InterComData"
 import { CallRecordItemView } from "../../itemview/CallRecordItemView"
 
@@ -11,11 +15,19 @@ import { CallRecordItemView } from "../../itemview/CallRecordItemView"
 export struct CallRecordClassify {
   @State callRecordList: Array<CallRecordItemData> = []
   @State type: string = ''
+  @State unReadeNum: number = 0
+  // 列表类型
+  @State selectType: string = CALL_RECORD_ALL_TYPE
 
   aboutToAppear(): void {
     this.callRecordList = this.callRecordList.concat(callRecordMissList)
     this.callRecordList = this.callRecordList.concat(callRecordCallInList)
     this.callRecordList = this.callRecordList.concat(callRecordCallOutList)
+    this.callRecordList.forEach(element => {
+      if(element.isRead==false){
+        this.unReadeNum++
+      }
+    });
   }
 
   build() {
@@ -26,11 +38,12 @@ export struct CallRecordClassify {
           .height(70)
           .fontColor('#ffffff')
           .fontSize(28)
-          .backgroundColor('#262626')
+          .backgroundColor(this.selectType == CALL_RECORD_MISS_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .textAlign(TextAlign.Center)
           .onClick(() => {
             this.callRecordList = callRecordMissList
+            this.selectType = CALL_RECORD_MISS_TYPE
           })
 
         Text('呼入记录')
@@ -38,11 +51,12 @@ export struct CallRecordClassify {
           .height(70)
           .fontColor('#ffffff')
           .fontSize(28)
-          .backgroundColor('#262626')
+          .backgroundColor(this.selectType == CALL_RECORD_CALLIN_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .textAlign(TextAlign.Center)
           .onClick(() => {
             this.callRecordList = callRecordCallInList
+            this.selectType = CALL_RECORD_CALLIN_TYPE
           })
 
         Text('呼出记录')
@@ -50,11 +64,12 @@ export struct CallRecordClassify {
           .height(70)
           .fontColor('#ffffff')
           .fontSize(28)
-          .backgroundColor('#262626')
+          .backgroundColor(this.selectType == CALL_RECORD_CALLOUT_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .textAlign(TextAlign.Center)
           .onClick(() => {
             this.callRecordList = callRecordCallOutList
+            this.selectType = CALL_RECORD_CALLOUT_TYPE
           })
 
         Text('清空')
@@ -75,6 +90,24 @@ export struct CallRecordClassify {
       .justifyContent(FlexAlign.End)
       .id('top_right_rw')
 
+      Row(){
+        Text("共有")
+          .fontColor('#ffffff')
+          .fontSize(22)
+
+        Text(this.unReadeNum+"")
+          .fontColor('#ffffff')
+          .fontSize(36)
+          .padding({bottom:4,left:2,right:2})
+
+        Text("未读记录")
+          .fontColor('#ffffff')
+          .fontSize(22)
+      }
+      .width('100%')
+      .height(55)
+      .justifyContent(FlexAlign.Start)
+
       Stack() {
         Column() {
 
@@ -92,7 +125,6 @@ export struct CallRecordClassify {
         }
         .width('100%')
         .height(514)
-        .margin({ top: 55 })
 
         // 缺省页面
         if (this.callRecordList.length == 0) {

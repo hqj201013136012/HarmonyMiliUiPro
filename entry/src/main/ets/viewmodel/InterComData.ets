@@ -51,6 +51,8 @@ export class CallListItemData {
   }
 }
 
+// 全部
+export const CALL_RECORD_ALL_TYPE = "0"
 // 未接
 export const CALL_RECORD_MISS_TYPE = "1"
 // 呼入

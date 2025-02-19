@@ -1,6 +1,9 @@
 import {
   SecurityModeBannerClass,
   SecurityModeItemType,
+  SECURITY_AT_HOME_TYPE,
+  SECURITY_AT_NIGHT_TYPE,
+  SECURITY_GO_OUT_TYPE,
   wiredDefenseAreaList,
   wirelessDefenseAreaList
 } from "../../viewmodel/SecurityData"
@@ -10,6 +13,7 @@ export struct SecurityModeGridView {
   @State type: string = ''
   @State securityModeBannerList: Array<SecurityModeBannerClass> = []
   @State securityModeStr: string = '有线防区'
+  @State securityOperateType: string = SECURITY_AT_HOME_TYPE
 
   aboutToAppear(): void {
     this.securityModeBannerList =
@@ -101,15 +105,18 @@ export struct SecurityModeGridView {
               .height(25)
 
             Text('在家撤防')
-              .fontColor('#ffffff')
+              .fontColor(this.securityOperateType == SECURITY_AT_HOME_TYPE ? '#ffffff' : '#4D4D4D')
               .fontSize(24)
               .margin({left:17})
           }
           .width(188)
           .height(70)
-          .backgroundColor('#262626')
+          .backgroundColor(this.securityOperateType == SECURITY_AT_HOME_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .justifyContent(FlexAlign.Center)
+          .onClick(()=>{
+            this.securityOperateType = SECURITY_AT_HOME_TYPE
+          })
 
           Row() {
             Image($r('app.media.icon_goout_btn'))
@@ -117,15 +124,18 @@ export struct SecurityModeGridView {
               .height(25)
 
             Text('外出布防')
-              .fontColor('#ffffff')
+              .fontColor(this.securityOperateType == SECURITY_GO_OUT_TYPE ? '#ffffff' : '#4D4D4D')
               .fontSize(24)
               .margin({left:17})
           }
           .width(188)
           .height(70)
-          .backgroundColor('#262626')
+          .backgroundColor(this.securityOperateType == SECURITY_GO_OUT_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .justifyContent(FlexAlign.Center)
+          .onClick(()=>{
+            this.securityOperateType = SECURITY_GO_OUT_TYPE
+          })
 
           Row() {
             Image($r('app.media.icon_atnight_btn'))
@@ -133,15 +143,18 @@ export struct SecurityModeGridView {
               .height(25)
 
             Text('夜间布防')
-              .fontColor('#ffffff')
+              .fontColor(this.securityOperateType == SECURITY_AT_NIGHT_TYPE ? '#ffffff' : '#4D4D4D')
               .fontSize(24)
               .margin({left:17})
           }
           .width(188)
           .height(70)
-          .backgroundColor('#262626')
+          .backgroundColor(this.securityOperateType == SECURITY_AT_NIGHT_TYPE ? '#2495ff' : '#262626')
           .borderRadius(12)
           .justifyContent(FlexAlign.Center)
+          .onClick(()=>{
+            this.securityOperateType = SECURITY_AT_NIGHT_TYPE
+          })
         }
 
       }
