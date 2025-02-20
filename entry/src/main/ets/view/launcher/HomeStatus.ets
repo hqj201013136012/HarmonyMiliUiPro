@@ -1,3 +1,5 @@
+import { router } from "@kit.ArkUI"
+
 @Preview
 @Component
 export struct HomeStatus {
@@ -12,6 +14,11 @@ export struct HomeStatus {
           .width(70)
           .height(70)
           .margin({ left: 28 })
+          .onClick(()=>{
+            router.pushUrl({
+              url: 'pages/MessageListPage'
+            })
+          })
 
       }
       .height(80)

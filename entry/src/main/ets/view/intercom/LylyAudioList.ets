@@ -1,16 +1,16 @@
-import { SecurityAlarmRecordItemData, securityAlarmRecordList } from "../../viewmodel/SecurityData"
 import { ItemSecurityAlarm } from "../../itemview/ItemSecurityAlarm"
 import { UnReadRecordView } from "../../common/view/UnReadRecordView"
+import { lylyAudioDataList, LylyAudioItemData } from "../../viewmodel/InterComData"
+import { ItemLylyAudio } from "../../itemview/ItemLylyAudio"
 import { DefaultPage } from "../../common/view/DefaultPage"
 
 @Component
-export struct SecurityAlarmRecordList {
-  @State recordList: Array<SecurityAlarmRecordItemData> = []
-  @State type: string = ''
+export struct LylyAudioList {
+  @State recordList: Array<LylyAudioItemData> = []
   @State unReadNum: number = 0
 
   aboutToAppear(): void {
-    this.recordList = securityAlarmRecordList
+    this.recordList = lylyAudioDataList
     this.recordList.forEach(element => {
       if(element.isRead==false){
         this.unReadNum++
@@ -44,9 +44,9 @@ export struct SecurityAlarmRecordList {
       Stack() {
         Column() {
           List({ space: 14 }) {
-            ForEach(this.recordList, (item: SecurityAlarmRecordItemData) => {
+            ForEach(this.recordList, (item: LylyAudioItemData) => {
               ListItem() {
-                ItemSecurityAlarm({ itemData: item })
+                ItemLylyAudio({ itemData: item })
               }
             })
           }

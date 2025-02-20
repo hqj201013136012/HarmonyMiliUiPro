@@ -1,3 +1,4 @@
+import { DefaultPage } from "../../common/view/DefaultPage"
 import { ItemSecurityOperate } from "../../itemview/ItemSecurityOperate"
 import { SecurityOperateRecordItemData, securityOperateRecordList } from "../../viewmodel/SecurityData"
 
@@ -52,16 +53,7 @@ export struct SecurityOperateRecordList {
 
         // 缺省页面
         if (this.recordList.length == 0) {
-          Column() {
-            Image($r('app.media.pic_nothing'))
-              .width(524)
-              .height(274)
-
-            Text('暂无数据，请重试')
-              .fontColor('#ffffff')
-              .fontSize(24)
-          }
-          .align(Alignment.Center)
+          DefaultPage()
         }
       }
       .width('100%')

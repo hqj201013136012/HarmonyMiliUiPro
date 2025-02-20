@@ -82,11 +82,11 @@ export const defaultCardTypeList: CardItemType[] = [
   new CardItemType(HOME_CARD_INTERCOM_TYPE, "对讲", $r('app.media.icon_intercom'), "pages/IntercomHomePage"),
   new CardItemType(HOME_CARD_MONITOR_TYPE, "预览", $r('app.media.icon_monitor'), "pages/MonitorHomePage"),
   new CardItemType(HOME_CARD_LADDER_TYPE, "招梯", $r('app.media.icon_ladder'), ""),
-  new CardItemType(HOME_CARD_LYLY_MESSAGE_TYPE, "留影留言", $r('app.media.icon_message'), ""),
+  new CardItemType(HOME_CARD_LYLY_MESSAGE_TYPE, "留影留言", $r('app.media.icon_message'), "pages/LylyHomePage"),
   new CardItemType(HOME_CARD_CALENDAR_TYPE, "日历", $r('app.media.icon_calendar'), ""),
   new CardItemType(HOME_CARD_MESSAGE_TYPE, "信息", $r('app.media.icon_message'), "pages/MessageListPage"),
   new CardItemType(HOME_CARD_SETTING_TYPE, "设置", $r('app.media.icon_setting'), "pages/SettingHomePage"),
-  new CardItemType(HOME_CARD_ADD_TYPE, "", $r('app.media.icon_add'), ""),
+  new CardItemType(HOME_CARD_ADD_TYPE, "", $r('app.media.icon_add'), "pages/ShotCutList"),
 // {
 //   "type": HOME_CARD_SAFETY_TYPE,
 //   "name": "安防",

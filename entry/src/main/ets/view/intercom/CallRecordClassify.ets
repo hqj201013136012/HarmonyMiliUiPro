@@ -11,6 +11,7 @@ import {
 } from "../../viewmodel/InterComData"
 import { CallRecordItemView } from "../../itemview/CallRecordItemView"
 import { UnReadRecordView } from "../../common/view/UnReadRecordView"
+import { DefaultPage } from "../../common/view/DefaultPage"
 
 @Component
 export struct CallRecordClassify {
@@ -112,16 +113,7 @@ export struct CallRecordClassify {
 
         // 缺省页面
         if (this.callRecordList.length == 0) {
-          Column() {
-            Image($r('app.media.pic_nothing'))
-              .width(524)
-              .height(274)
-
-            Text('暂无数据，请重试')
-              .fontColor('#ffffff')
-              .fontSize(24)
-          }
-          .align(Alignment.Center)
+          DefaultPage()
         }
       }
       .width('100%')

@@ -1,11 +1,14 @@
 import { router } from "@kit.ArkUI"
+// export  interface HeaderController {
+//   rightClick?: () => void
+// }
 
-@Preview
-@Component
+@ComponentV2
 export struct HeaderTitleBar{
-  @Prop title: string = '标题'
-  @Prop isShowRightText: boolean = false
-  @Prop rightText: string = 'xxx'
+  @Param title: string = '标题'
+  @Param isShowRightText: boolean = false
+  @Param rightText: string = 'xxx'
+  @Event rightClick: () => void;
   build() {
     RelativeContainer(){
       Image($r('app.media.icon_back'))
@@ -43,6 +46,9 @@ export struct HeaderTitleBar{
           .alignRules({
             center: { anchor: "__container__", align: VerticalAlign.Center },
             right: { anchor: "__container__", align: HorizontalAlign.End },
+          })
+          .onClick(()=>{
+            this.rightClick()
           })
       }
 

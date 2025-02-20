@@ -7,6 +7,7 @@ import {
   MONITOR_LADDER_TYPE
 } from "../../viewmodel/InterComData"
 import { router } from "@kit.ArkUI"
+import { DefaultPage } from "../../common/view/DefaultPage";
 
 @Component
 export struct MonitorDeviceList {
@@ -114,16 +115,7 @@ export struct MonitorDeviceList {
 
         // 缺省页面
         if (this.selectList.length == 0) {
-          Column() {
-            Image($r('app.media.pic_nothing'))
-              .width(524)
-              .height(274)
-
-            Text('暂无数据，请重试')
-              .fontColor('#ffffff')
-              .fontSize(24)
-          }
-          .align(Alignment.Center)
+          DefaultPage()
         }
       }
     }

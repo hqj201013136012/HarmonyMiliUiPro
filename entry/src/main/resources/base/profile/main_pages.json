@@ -8,6 +8,7 @@
     "pages/CallPage",
     "pages/SecurityHomePage",
     "pages/MessageListPage",
-    "pages/MonitorHomePage"
+    "pages/MonitorHomePage",
+    "pages/LylyHomePage"
   ]
 }

@@ -1,8 +1,5 @@
 import { ItemCommonLeftMenu } from '../../itemview/ItemCommonLeftMenu';
-import { CALL_CENTER_TYPE,
-  CALL_EXTENSION_TYPE,
-  CALL_RECORD_TYPE,
-  CALL_USER_TYPE, IntercomHomeLeftMenuItemData } from '../../viewmodel/InterComData';
+import {  IntercomHomeLeftMenuItemData } from '../../viewmodel/InterComData';
 import { ALARM_RECORD_TYPE,
   OPERATE_RECORD_TYPE,
   SecurityHomeLeftMenuItemData, SECURITY_MODE_TYPE } from '../../viewmodel/SecurityData';

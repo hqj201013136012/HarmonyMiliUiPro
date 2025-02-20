@@ -1,6 +1,13 @@
 import { router } from "@kit.ArkUI"
-import { CardItemType, defaultCardTypeList, HOME_CARD_ADD_TYPE } from "../../viewmodel/ShotCutCardData"
+import {
+  CardItemType,
+  defaultCardTypeList,
+  HOME_CARD_ADD_TYPE,
+  HOME_CARD_LADDER_TYPE
+} from "../../viewmodel/ShotCutCardData"
 import { CardType } from "@kit.VisionKit"
+import { CommonIconAlertDialog } from "../../common/dialog/CommonIconAlertDialog"
+import { text } from "@kit.ArkGraphics2D"
 
 @Component
 export struct BannerCards {
@@ -15,42 +22,43 @@ export struct BannerCards {
         new BannerClass('2', Array<CardItemType>(defaultCardTypeList[8]))]
   }
 
+  // 招梯弹窗
+  alertDialogController: CustomDialogController | null = new CustomDialogController({
+    builder: CommonIconAlertDialog({
+      icon: $r('app.media.tip_success'),
+      textStr:'召梯成功！请尽快出门'
+    }),
+    alignment:DialogAlignment.Center,
+    width:558,
+    height:370,
+  })
+
   build() {
     RelativeContainer() {
       Swiper() {
         ForEach(this.defaultBannerList, (item: BannerClass, index: number) => {
           Grid() {
-            ForEach(item.types, (type: CardItemType) => {
-              if (type.type == HOME_CARD_ADD_TYPE) {
-                GridItem() {
-                  RelativeContainer() {
-                    Image(type.imageSrc)
+            ForEach(item.types, (itemCard: CardItemType) => {
+              GridItem() {
+                RelativeContainer() {
+                  // 添加按钮
+                  if (itemCard.type == HOME_CARD_ADD_TYPE) {
+                    Image(itemCard.imageSrc)
                       .width(140)
                       .height(140)
                       .alignRules({
                         center: { anchor: "__container__", align: VerticalAlign.Center },
                         middle: { anchor: "__container__", align: HorizontalAlign.Center },
                       })
-                      .onClick(() => {
-                        router.pushUrl({
-                          url: 'pages/ShotCutList'
-                        })
-                      })
                   }
-                }
-                .height("100%")
-                .width('100%')
-                .borderRadius(20)
-                .backgroundColor('#303030')
-              } else {
-                GridItem() {
-                  RelativeContainer() {
-                    Text(type.name)
+                  // 快捷卡片
+                  else {
+                    Text(itemCard.name)
                       .fontSize(30)
                       .fontColor('#ffffff')
                       .margin({ left: 15, top: 15 })
 
-                    Image(type.imageSrc)
+                    Image(itemCard.imageSrc)
                       .width(140)
                       .height(140)
                       .alignRules({
@@ -58,20 +66,28 @@ export struct BannerCards {
                         right: { anchor: "__container__", align: HorizontalAlign.End },
                       })
                   }
-                  .onClick(() => {
-                    if (type.urlpath != '') {
-                      router.pushUrl({
-                        url: type.urlpath
-                      })
+
+                }
+                .onClick(() => {
+                  if (itemCard.type == HOME_CARD_LADDER_TYPE) {
+                    if(this.alertDialogController!=undefined){
+                      this.alertDialogController.open()
                     }
 
-                  })
-                }
-                .height("100%")
-                .width('100%')
-                .borderRadius(20)
-                .backgroundColor('#303030')
+                  } else {
+                    if (itemCard.urlpath != '') {
+                      router.pushUrl({
+                        url: itemCard.urlpath
+                      })
+                    }
+                  }
+                })
               }
+              .height("100%")
+              .width('100%')
+              .borderRadius(20)
+              .backgroundColor('#303030')
+
             })
           }
           .columnsTemplate('1fr 1fr')
@@ -113,13 +129,3 @@ class BannerClass {
     this.types = types;
   }
 }
-
-// // 卡片数据结构
-// class CardType{
-//   name: string = '';
-//   imageSrc: ResourceStr = '';
-//   constructor(name: string, imageSrc: ResourceStr) {
-//     this.name = name;
-//     this.imageSrc = imageSrc;
-//   }
-// }

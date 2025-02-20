@@ -1,5 +1,21 @@
+import { CommonIconAlertDialog } from "../../common/dialog/CommonIconAlertDialog"
+import { router } from "@kit.ArkUI"
+
 @Component
 export struct HomeMenu {
+  @State alertIcon:ResourceStr=$r('app.media.tip_success')
+  @State alertText:string='成功'
+  // alert提示弹窗
+  alertDialogController: CustomDialogController | null = new CustomDialogController({
+    builder: CommonIconAlertDialog({
+      icon: this.alertIcon,
+      textStr:this.alertText
+    }),
+    alignment:DialogAlignment.Center,
+    width:558,
+    height:370,
+  })
+
   build() {
     // 免打扰，紧急救援，呼叫中心
     RelativeContainer() {
@@ -16,6 +32,13 @@ export struct HomeMenu {
         }
         .width('33%')
         .height('100%')
+        .onClick(() => {
+          this.alertIcon=$r('app.media.tip_success')
+          this.alertText='免打扰已启用，30分钟后失败'
+          if(this.alertDialogController!=undefined){
+            this.alertDialogController.open()
+          }
+        })
 
         Column() {
           Image($r('app.media.icon_sos'))
@@ -29,6 +52,13 @@ export struct HomeMenu {
         }
         .width('33%')
         .height('100%')
+        .onClick(() => {
+          this.alertIcon=$r('app.media.tip_sos')
+          this.alertText='报警成功!'
+          if(this.alertDialogController!=undefined){
+            this.alertDialogController.open()
+          }
+        })
 
         Column() {
           Image($r('app.media.icon_callcenter'))
@@ -42,6 +72,12 @@ export struct HomeMenu {
         }
         .width('33%')
         .height('100%')
+        .onClick(()=>{
+          router.pushUrl({
+            url: 'pages/IntercomHomePage'
+          })
+        })
+
       }
       .width('100%')
 
