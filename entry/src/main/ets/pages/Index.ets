@@ -1,3 +1,4 @@
+import { ControlCenterDialog } from '../common/dialog/ControlCenterDialog';
 import { BannerCards } from '../view/launcher/BannerCards'
 import { HomeMenu } from '../view/launcher/HomeMenu';
 import { HomeStatus } from '../view/launcher/HomeStatus';
@@ -6,14 +7,32 @@ import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 @Entry
 @Component
 struct Index {
-  // @StorageProp('time') timeData: string = ''
-  // @StorageProp('date') dateData: string = ''
-  // @StorageProp('time_stage') timeStageData: string = ''
-  // @State @Watch('change1') num: number = 10;
 
-  change1() {
-    console.log(`xxx`);
-  }
+  @State mDownY: number = 0
+  @State mMoveY: number = 0
+  isShowWindow: boolean = false
+  alertDialogController: CustomDialogController | null = new CustomDialogController({
+    builder: ControlCenterDialog(),
+    alignment:DialogAlignment.Top,
+    width:'100%',
+    height:288,
+    cornerRadius:0,
+    backgroundColor:'#00000000',
+    // openAnimation: {
+    //   duration: 500,
+    //   delay: 500,
+    //   playMode: PlayMode.Alternate,
+    //   onFinish: () => {
+    //     console.info('play end')
+    //   }
+    // },
+    onWillDismiss:(dismissDialogAction: DismissDialogAction)=> {
+      dismissDialogAction.dismiss()
+      this.isShowWindow=false
+    }
+  })
+
+
 
   build() {
 
@@ -44,6 +63,29 @@ struct Index {
     .height('100%')
     .width('100%')
     .backgroundColor(0x000000)
+    .onTouch((event?: TouchEvent) => {
+      if (event) {
+        if (event.type === TouchType.Down) {
+          this.mDownY = event.touches[0].windowY
+
+        }
+        if (event.type === TouchType.Move) {
+          this.mMoveY = event.touches[0].windowY
+          if (this.mMoveY < 100 && (this.mMoveY - this.mDownY) > 30 && (!this.isShowWindow)) {
+            if(this.alertDialogController!=undefined){
+              this.isShowWindow = true
+              console.log('showdialog')
+              this.alertDialogController.open()
+            }
+
+          }
+        }
+        if (event.type === TouchType.Up) {
+          this.isShowWindow=false
+        }
+
+      }
+    })
   }
 }
 

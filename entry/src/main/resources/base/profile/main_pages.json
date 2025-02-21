@@ -9,6 +9,7 @@
     "pages/SecurityHomePage",
     "pages/MessageListPage",
     "pages/MonitorHomePage",
-    "pages/LylyHomePage"
+    "pages/LylyHomePage",
+    "pages/TestPage"
   ]
 }

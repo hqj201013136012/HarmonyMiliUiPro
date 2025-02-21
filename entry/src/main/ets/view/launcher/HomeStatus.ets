@@ -10,6 +10,11 @@ export struct HomeStatus {
           .fontSize(30)
           .margin({ left: 48 })
           .fontColor('#ffffff')
+          .onClick(()=>{
+            router.pushUrl({
+              url: 'pages/TestPage'
+            })
+          })
         Image($r('app.media.icon_information'))
           .width(70)
           .height(70)

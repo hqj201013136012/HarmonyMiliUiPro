@@ -13,8 +13,9 @@ struct CallPage {
         direction: Axis.Vertical,
         reverse: true // 竖向的Slider默认是上端是min值，下端是max值，因此想要从下往上滑动，需要设置reverse为true
       })
-        .width(26)
-        .height(280)
+        .trackThickness(16)
+        .blockSize({width:38,height:38})
+        .height(350)
         .blockColor('#ffffff')
         .trackColor('#262626')
         .selectedColor('#2495ff')
