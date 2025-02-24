@@ -1,7 +1,7 @@
 import { router } from "@kit.ArkUI"
 
 @Preview
-@Component
+@ComponentV2
 export struct HomeStatus {
   build() {
     RelativeContainer() {

@@ -5,12 +5,13 @@ import { ALARM_RECORD_TYPE,
   SecurityHomeLeftMenuItemData, SECURITY_MODE_TYPE } from '../../viewmodel/SecurityData';
 
 
-@Component
+@ComponentV2
 export struct SecurityHomeLeftMenu {
   // 首页左侧菜单列表数据
-  @State leftMenuList: SecurityHomeLeftMenuItemData[]=[];
+  @Local leftMenuList: SecurityHomeLeftMenuItemData[]=[];
   // 左侧菜单点击的tab记录
-  @Link itemType: string
+  @Require @Param itemType: string
+  @Event changeItemType: (val: string) => void;
 
   aboutToAppear(): void {
     this.leftMenuList= [
@@ -43,7 +44,7 @@ export struct SecurityHomeLeftMenu {
               element.isSelect = false
             });
             item.isSelect = true
-            this.itemType=item.type
+            this.changeItemType(item.type)
           })
         })
       }

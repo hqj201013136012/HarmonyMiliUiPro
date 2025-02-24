@@ -4,9 +4,9 @@ import { CallExtensionList } from "./CallExtensionList"
 import { CallRecordClassify } from "./CallRecordClassify"
 
 
-@Component
+@ComponentV2
 export struct IntercomHomeRightContent {
-  @Prop menuType: string
+  @Require @Param menuType: string
 
   build() {
     Column() {

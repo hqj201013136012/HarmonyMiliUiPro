@@ -6,12 +6,13 @@ import { IntercomHomeLeftMenuItemData,
   MONITOR_LADDER_TYPE} from '../../viewmodel/InterComData';
 
 
-@Component
+@ComponentV2
 export struct MonitorHomeLeftMenu {
   // 首页左侧菜单列表数据
-  @State intercomHomeLeftMenuList: IntercomHomeLeftMenuItemData[]=[];
+  @Local intercomHomeLeftMenuList: IntercomHomeLeftMenuItemData[]=[];
   // 左侧菜单点击的tab记录
-  @Link itemType: string
+  @Require @Param itemType: string
+  @Event changeItemType: (val: string) => void;
 
   aboutToAppear(): void {
     this.intercomHomeLeftMenuList= [
@@ -55,7 +56,7 @@ export struct MonitorHomeLeftMenu {
               element.isSelect = false
             });
             item.isSelect = true
-            this.itemType=item.type
+            this.changeItemType(item.type)
           })
         })
       }

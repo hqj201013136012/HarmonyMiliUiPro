@@ -1,8 +1,8 @@
 import { LylyAudioItemData } from "../viewmodel/InterComData"
 
-@Component
+@ComponentV2
 export struct ItemLylyAudio {
-  @ObjectLink itemData: LylyAudioItemData
+  @Require @Param itemData: LylyAudioItemData
 
   build() {
     RelativeContainer() {

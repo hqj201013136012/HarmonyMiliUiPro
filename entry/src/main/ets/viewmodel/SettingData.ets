@@ -11,7 +11,7 @@ export const SET_ENGINE_TYPE = "3"
 export const SET_SYS_INFO_TYPE = "4"
 
 // 首页Banner的Item数据结构
-@Observed
+@ObservedV2
 export class SetHomeLeftMenuItemData {
   type: string
   isSelect: boolean = false

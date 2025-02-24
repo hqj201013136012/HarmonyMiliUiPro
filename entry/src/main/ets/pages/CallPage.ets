@@ -1,9 +1,9 @@
 import { router } from '@kit.ArkUI'
 
 @Entry
-@Component
+@ComponentV2
 struct CallPage {
-  @State processValue: number = 40
+  @Local processValue: number = 40
 
   build() {
     RelativeContainer() {

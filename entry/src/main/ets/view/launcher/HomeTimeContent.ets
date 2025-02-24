@@ -1,5 +1,5 @@
 @Preview
-@Component
+@ComponentV2
 export struct HomeTimeContent {
   // @Prop timeStr: string = ''
   // @Prop dateStr: string = ''

@@ -4,9 +4,9 @@ import { SecuritySetList } from "./SecuritySetList"
 import { SystemInfoSetList } from "./SystemInfoSetList"
 import { UserSetList } from "./UserSetList"
 
-@Component
+@ComponentV2
 export struct SetHomeRightContent {
-  @Prop menuType: string
+  @Require @Param menuType: string
 
   build() {
     Column() {

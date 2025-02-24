@@ -1,7 +1,7 @@
-@Component
+@ComponentV2
 export struct ItemSetTextView {
-  @Prop name: string
-  @Prop rightText: string
+  @Require @Param name: string
+  @Require @Param rightText: string
 
   build() {
     Column() {

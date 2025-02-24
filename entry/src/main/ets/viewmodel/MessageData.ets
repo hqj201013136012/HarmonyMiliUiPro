@@ -1,5 +1,5 @@
 
-@Observed
+@ObservedV2
 export class MessageItemData {
   //信息类型
   infoType: string

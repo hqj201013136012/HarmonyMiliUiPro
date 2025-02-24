@@ -7,7 +7,7 @@ export const ALARM_RECORD_TYPE = "2"
 // 操作记录
 export const OPERATE_RECORD_TYPE = "3"
 
-@Observed
+@ObservedV2
 export class SecurityHomeLeftMenuItemData {
   type: string
   isSelect: boolean = false
@@ -88,7 +88,7 @@ export const wirelessDefenseAreaList: SecurityModeItemType[] = [
 ]
 
 // 报警记录实体
-@Observed
+@ObservedV2
 export class SecurityAlarmRecordItemData {
   //报警类型
   alarmType: string
@@ -129,7 +129,7 @@ export const securityAlarmRecordList: SecurityAlarmRecordItemData[] = [
 ]
 
 // 安防操作记录
-@Observed
+@ObservedV2
 export class SecurityOperateRecordItemData {
   //操作类型
   operationType: string

@@ -1,14 +1,14 @@
-@Component
+@ComponentV2
 export struct ItemSetSwitchView {
-  @Prop name: string
-  @Prop discribeStr: string
-  @Prop swichStatus: boolean
+  @Require @Param name: string
+  @Param discribeStr: string = ''
+  @Require @Param swichStatus: boolean
 
   build() {
     Column() {
       RelativeContainer() {
 
-        Column(){
+        Column() {
           Text(this.name)
             .fontColor('#ffffff')
             .fontSize(28)
@@ -16,17 +16,16 @@ export struct ItemSetSwitchView {
           Text(this.discribeStr)
             .fontColor('#808080')
             .fontSize(22)
-            .margin({top:4})
+            .margin({ top: 4 })
         }
-        .margin({left:56})
+        .margin({ left: 56 })
         .height('100%')
         .alignItems(HorizontalAlign.Start)
         .justifyContent(FlexAlign.Center)
 
 
-
         Toggle({ type: ToggleType.Switch, isOn: this.swichStatus })
-          .size({width:96,height:52})
+          .size({ width: 96, height: 52 })
           .selectedColor('#2495ff')
           .switchPointColor('#FFFFFF')
           .onChange((isOn: boolean) => {
@@ -37,8 +36,7 @@ export struct ItemSetSwitchView {
             bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
             right: { anchor: "__container__", align: HorizontalAlign.End },
           })
-          .margin({right:58})
-
+          .margin({ right: 58 })
 
 
       }

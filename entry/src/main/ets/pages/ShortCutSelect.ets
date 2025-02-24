@@ -4,11 +4,11 @@ import { SelectShortCutItemData, ShortCutAlarmTypeList, ShortCutSelectTypeList }
 import { ShortCutSelectItem } from '../itemview/ShortCutSelectItem';
 
 @Entry
-@Component
+@ComponentV2
 struct ShortCutSelect {
-  @State paramsFromIndex: object = router.getParams()
-  @State type: string = ''
-  @State selectList: Array<SelectShortCutItemData> = []
+  @Local paramsFromIndex: object = router.getParams()
+  @Local type: string = ''
+  @Local selectList: Array<SelectShortCutItemData> = []
 
   aboutToAppear(): void {
     this.type = this.paramsFromIndex['selectType'];
@@ -16,7 +16,6 @@ struct ShortCutSelect {
     let itemName = ''
     let imgRes:ResourceStr = ''
     for (let index = 0; index < ShortCutSelectTypeList.length; index++) {
-
       if(ShortCutSelectTypeList[index].type==this.type){
         itemName=ShortCutSelectTypeList[index].name
         imgRes=ShortCutSelectTypeList[index].imageSrc

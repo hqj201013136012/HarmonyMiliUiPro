@@ -3,7 +3,7 @@ import { LylyHomeLeftMenu } from '../view/intercom/LylyHomeLeftMenu'
 import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar'
 
 @Entry
-@Component
+@ComponentV2
 struct LylyHomePage {
 
   build() {

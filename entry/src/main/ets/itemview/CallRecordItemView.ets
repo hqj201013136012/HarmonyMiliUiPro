@@ -5,10 +5,10 @@ import {
   CALL_RECORD_MISS_TYPE
 } from "../viewmodel/InterComData"
 
-@Component
+@ComponentV2
 export struct CallRecordItemView {
-  @ObjectLink itemData: CallRecordItemData
-  @Prop callStr: string = ''
+  @Require @Param itemData: CallRecordItemData
+  @Local callStr: string = ''
 
   aboutToAppear(): void {
     switch (this.itemData.callType) {

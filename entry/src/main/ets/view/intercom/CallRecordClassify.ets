@@ -13,13 +13,13 @@ import { CallRecordItemView } from "../../itemview/CallRecordItemView"
 import { UnReadRecordView } from "../../common/view/UnReadRecordView"
 import { DefaultPage } from "../../common/view/DefaultPage"
 
-@Component
+@ComponentV2
 export struct CallRecordClassify {
-  @State callRecordList: Array<CallRecordItemData> = []
-  @State type: string = ''
-  @State unReadNum: number = 0
+  @Local callRecordList: Array<CallRecordItemData> = []
+  @Param type: string = ''
+  @Local unReadNum: number = 0
   // 列表类型
-  @State selectType: string = CALL_RECORD_ALL_TYPE
+  @Local selectType: string = CALL_RECORD_ALL_TYPE
 
   aboutToAppear(): void {
     this.callRecordList = this.callRecordList.concat(callRecordMissList)

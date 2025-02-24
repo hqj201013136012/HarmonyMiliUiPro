@@ -3,10 +3,10 @@ import { ItemSecurityOperate } from "../../itemview/ItemSecurityOperate"
 import { SecurityOperateRecordItemData, securityOperateRecordList } from "../../viewmodel/SecurityData"
 
 
-@Component
+@ComponentV2
 export struct SecurityOperateRecordList {
-  @State recordList: Array<SecurityOperateRecordItemData> = []
-  @State type: string = ''
+  @Local recordList: Array<SecurityOperateRecordItemData> = []
+  @Param type: string = ''
 
   aboutToAppear(): void {
     this.recordList = securityOperateRecordList

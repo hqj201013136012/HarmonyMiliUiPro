@@ -3,9 +3,9 @@ import { CallListItemData } from "../viewmodel/InterComData"
 /**
  * 对讲-呼叫列表的Item
  */
-@Component
+@ComponentV2
 export struct ItemCallView {
-  @Prop itemData:CallListItemData
+  @Require @Param itemData:CallListItemData
 
   build() {
    Column(){

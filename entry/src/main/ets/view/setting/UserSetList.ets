@@ -1,7 +1,7 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
 import { ItemSetSwitchView } from "../../itemview/ItemSetSwitchView"
 
-@Component
+@ComponentV2
 export struct UserSetList {
   build() {
     Scroll() {

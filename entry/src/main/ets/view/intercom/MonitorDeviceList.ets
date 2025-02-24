@@ -9,17 +9,17 @@ import {
 import { router } from "@kit.ArkUI"
 import { DefaultPage } from "../../common/view/DefaultPage";
 
-@Component
+@ComponentV2
 export struct MonitorDeviceList {
-  @State selectList: Array<MonitorDeviceItemData> = []
-  @Prop @Watch('menuTypeChange') menuType: string = '';
-  menuTypeChange() {
-    console.log(`menuTypeChangexxxxx` + this.menuType);
+  @Local selectList: Array<MonitorDeviceItemData> = []
+  @Param menuType: string = '';
+  @Monitor("menuType")
+  menuTypeChange(monitor: IMonitor) {
     this.initData()
   }
 
-  @State nameStr: string = ""
-  @State imgSrc: ResourceStr = ''
+  @Local nameStr: string = ""
+  @Local imgSrc: ResourceStr = ''
 
   aboutToAppear(): void {
     console.log(`menuTypeChange` + this.menuType);

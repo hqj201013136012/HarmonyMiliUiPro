@@ -1,9 +1,9 @@
 
 import { SecurityAlarmRecordItemData } from "../viewmodel/SecurityData"
 
-@Component
+@ComponentV2
 export struct ItemSecurityAlarm {
-  @ObjectLink itemData: SecurityAlarmRecordItemData
+  @Require @Param itemData: SecurityAlarmRecordItemData
 
   aboutToAppear(): void {
 

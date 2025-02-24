@@ -4,24 +4,28 @@ import { SecurityHomeRightContent } from '../view/security/SecurityHomeRightCont
 import { SECURITY_MODE_TYPE } from '../viewmodel/SecurityData'
 
 @Entry
-@Component
+@ComponentV2
 struct SecurityHomePage {
-  @State menuTabStatus:string=SECURITY_MODE_TYPE
+  @Local menuTabStatus: string = SECURITY_MODE_TYPE
 
   build() {
     RelativeContainer() {
       HeaderTitleBar({ title: "安防" })
-      SecurityHomeLeftMenu({itemType:this.menuTabStatus})
+      SecurityHomeLeftMenu({
+        itemType: this.menuTabStatus, changeItemType: (val: string) => {
+          this.menuTabStatus = val
+        }
+      })
         .alignRules({
           top: { anchor: "header_rl", align: VerticalAlign.Bottom },
-          left:{ anchor: "__container__", align: HorizontalAlign.Start },
+          left: { anchor: "__container__", align: HorizontalAlign.Start },
         })
         .id('left_menu')
 
-      SecurityHomeRightContent({menuType:this.menuTabStatus})
+      SecurityHomeRightContent({ menuType: this.menuTabStatus })
         .alignRules({
           top: { anchor: "__container__", align: VerticalAlign.Top },
-          left:{ anchor: "left_menu", align: HorizontalAlign.End },
+          left: { anchor: "left_menu", align: HorizontalAlign.End },
           right: { anchor: "__container__", align: HorizontalAlign.End },
           bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
         })

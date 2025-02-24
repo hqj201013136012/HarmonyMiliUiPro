@@ -4,10 +4,10 @@ import { lylyAudioDataList, LylyAudioItemData } from "../../viewmodel/InterComDa
 import { ItemLylyAudio } from "../../itemview/ItemLylyAudio"
 import { DefaultPage } from "../../common/view/DefaultPage"
 
-@Component
+@ComponentV2
 export struct LylyAudioList {
-  @State recordList: Array<LylyAudioItemData> = []
-  @State unReadNum: number = 0
+  @Local recordList: Array<LylyAudioItemData> = []
+  @Local unReadNum: number = 0
 
   aboutToAppear(): void {
     this.recordList = lylyAudioDataList

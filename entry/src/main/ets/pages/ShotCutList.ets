@@ -3,7 +3,7 @@ import { ShortCutItemType, ShortCutTypeList } from '../viewmodel/ShotCutCardData
 import { router } from '@kit.ArkUI';
 
 @Entry
-@Component
+@ComponentV2
 struct ShotCutList {
 
   build() {

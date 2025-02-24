@@ -2,10 +2,10 @@ import { ItemCommonLeftMenu } from '../../itemview/ItemCommonLeftMenu';
 import { IntercomHomeLeftMenuItemData } from '../../viewmodel/InterComData';
 
 
-@Component
+@ComponentV2
 export struct LylyHomeLeftMenu {
   // 首页左侧菜单列表数据
-  @State leftMenuList: IntercomHomeLeftMenuItemData[]=[];
+  @Local leftMenuList: IntercomHomeLeftMenuItemData[]=[];
   // 左侧菜单点击的tab记录
  // @Link itemType: string
 

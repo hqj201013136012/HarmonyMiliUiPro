@@ -9,9 +9,9 @@ import { CardType } from "@kit.VisionKit"
 import { CommonIconAlertDialog } from "../../common/dialog/CommonIconAlertDialog"
 import { text } from "@kit.ArkGraphics2D"
 
-@Component
+@ComponentV2
 export struct BannerCards {
-  @State defaultBannerList: Array<BannerClass> = []
+  @Local defaultBannerList: Array<BannerClass> = []
 
   aboutToAppear(): void {
     this.defaultBannerList =

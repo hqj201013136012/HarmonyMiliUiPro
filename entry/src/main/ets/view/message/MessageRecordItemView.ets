@@ -1,8 +1,8 @@
 import { MessageItemData } from "../../viewmodel/MessageData"
 
-@Component
+@ComponentV2
 export struct MessageRecordItemView {
-  @ObjectLink itemData: MessageItemData
+  @Require @Param itemData: MessageItemData
 
   build() {
     RelativeContainer() {

@@ -11,7 +11,7 @@ export const CALL_EXTENSION_TYPE = "3"
 export const CALL_RECORD_TYPE = "4"
 
 //
-@Observed
+@ObservedV2
 export class IntercomHomeLeftMenuItemData {
   type: string
   isSelect: boolean = false
@@ -64,7 +64,7 @@ export const CALL_RECORD_CALLIN_TYPE = "2"
 export const CALL_RECORD_CALLOUT_TYPE = "3"
 
 // 呼叫列表Item实体
-@Observed
+@ObservedV2
 export class CallRecordItemData {
   callType: string
   devNo: string
@@ -144,7 +144,7 @@ export const MONITOR_CLASSIFY_TYPE = "3"
 export const MONITOR_IPC_TYPE = "4"
 
 // 监视列表Item实体
-@Observed
+@ObservedV2
 export class MonitorDeviceItemData {
   type: string = ""
   name: string
@@ -165,7 +165,7 @@ export const LYLY_SNAP_VEDIO_TYPE = "1"
 export const LYLY_SNAP_AUDIO_TYPE = "2"
 
 // 留影留言影音Item实体
-@Observed
+@ObservedV2
 export class LylyAudioItemData {
   // 默认为图片0，1为视频，2为音频
   snapType: string

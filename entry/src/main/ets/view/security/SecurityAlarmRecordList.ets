@@ -3,11 +3,11 @@ import { ItemSecurityAlarm } from "../../itemview/ItemSecurityAlarm"
 import { UnReadRecordView } from "../../common/view/UnReadRecordView"
 import { DefaultPage } from "../../common/view/DefaultPage"
 
-@Component
+@ComponentV2
 export struct SecurityAlarmRecordList {
-  @State recordList: Array<SecurityAlarmRecordItemData> = []
-  @State type: string = ''
-  @State unReadNum: number = 0
+  @Local recordList: Array<SecurityAlarmRecordItemData> = []
+  @Param type: string = ''
+  @Local unReadNum: number = 0
 
   aboutToAppear(): void {
     this.recordList = securityAlarmRecordList

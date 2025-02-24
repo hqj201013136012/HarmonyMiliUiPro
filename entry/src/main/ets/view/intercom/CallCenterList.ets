@@ -3,10 +3,10 @@ import { CallListItemData } from "../../viewmodel/InterComData"
 import { router } from "@kit.ArkUI"
 import { DefaultPage } from "../../common/view/DefaultPage"
 
-@Component
+@ComponentV2
 export struct CallCenterList {
-  @State selectList: Array<CallListItemData> = []
-  @State type: string = ''
+  @Local selectList: Array<CallListItemData> = []
+  @Param type: string = ''
   aboutToAppear(): void {
     for (let index = 0; index < 8; index++) {
       this.selectList[index]=new CallListItemData(this.type,"管理中心"+(index+1),$r('app.media.icon_callcenter_list_item'))

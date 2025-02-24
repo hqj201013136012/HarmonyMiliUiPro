@@ -1,19 +1,22 @@
 import { ItemCommonLeftMenu } from '../../itemview/ItemCommonLeftMenu';
-import { SetHomeLeftMenuItemData,
+import {
+  SetHomeLeftMenuItemData,
   SET_ENGINE_TYPE,
   SET_SECURITY_TYPE,
   SET_SYS_INFO_TYPE,
-  SET_USER_TYPE } from '../../viewmodel/SettingData';
+  SET_USER_TYPE
+} from '../../viewmodel/SettingData';
 
-@Component
+@ComponentV2
 export struct SetHomeLeftMenu {
   // 首页左侧菜单列表数据
-  @State setHomeLeftMenuList: SetHomeLeftMenuItemData[]=[];
+  @Local setHomeLeftMenuList: SetHomeLeftMenuItemData[] = [];
   // 左侧菜单点击的tab记录
-  @Link itemType: string
+  @Require @Param itemType: string
+  @Event changeItemType: (val: string) => void;
 
   aboutToAppear(): void {
-    this.setHomeLeftMenuList= [
+    this.setHomeLeftMenuList = [
       new SetHomeLeftMenuItemData(SET_USER_TYPE,
         true,
         false,
@@ -54,7 +57,8 @@ export struct SetHomeLeftMenu {
               element.isSelect = false
             });
             item.isSelect = true
-            this.itemType=item.type
+           // this.itemType = item.type
+            this.changeItemType(item.type)
           })
         })
       }

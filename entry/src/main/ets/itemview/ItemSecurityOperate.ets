@@ -1,8 +1,8 @@
 import { SecurityOperateRecordItemData } from "../viewmodel/SecurityData"
 
-@Component
+@ComponentV2
 export struct ItemSecurityOperate {
-  @ObjectLink itemData: SecurityOperateRecordItemData
+  @Require @Param itemData: SecurityOperateRecordItemData
 
   aboutToAppear(): void {
 

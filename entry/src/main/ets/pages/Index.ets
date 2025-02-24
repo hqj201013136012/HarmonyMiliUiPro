@@ -5,11 +5,11 @@ import { HomeStatus } from '../view/launcher/HomeStatus';
 import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 
 @Entry
-@Component
+@ComponentV2
 struct Index {
 
-  @State mDownY: number = 0
-  @State mMoveY: number = 0
+  @Local mDownY: number = 0
+  @Local mMoveY: number = 0
   isShowWindow: boolean = false
   alertDialogController: CustomDialogController | null = new CustomDialogController({
     builder: ControlCenterDialog(),

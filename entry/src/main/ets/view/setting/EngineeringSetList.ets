@@ -1,6 +1,6 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
 
-@Component
+@ComponentV2
 export struct EngineeringSetList {
   build() {
     Scroll() {

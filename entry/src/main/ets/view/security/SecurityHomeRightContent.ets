@@ -3,9 +3,9 @@ import { SecurityAlarmRecordList } from "./SecurityAlarmRecordList"
 import { SecurityModeGridView } from "./SecurityModeGridView"
 import { SecurityOperateRecordList } from "./SecurityOperateRecordList"
 
-@Component
+@ComponentV2
 export struct SecurityHomeRightContent {
-  @Prop menuType: string
+  @Require @Param menuType: string
 
   build() {
     Column() {

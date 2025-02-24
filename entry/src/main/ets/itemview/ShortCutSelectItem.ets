@@ -3,10 +3,10 @@ import { SelectShortCutItemData } from "../viewmodel/ShotCutCardData"
 /**
  * 快捷方式的选择Item组件
  */
-@Component
+@ComponentV2
 export struct ShortCutSelectItem {
-  @Prop itemData:SelectShortCutItemData
-  @State selectStatus:boolean=false
+  @Require @Param itemData: SelectShortCutItemData
+  @Local selectStatus: boolean = false
 
   build() {
     RelativeContainer() {
@@ -32,14 +32,14 @@ export struct ShortCutSelectItem {
         .onChange((value: boolean) => {
           console.info('Checkbox1 change is' + value)
         })
-        .margin({left:20,bottom:20})
+        .margin({ left: 20, bottom: 20 })
         .alignRules({
           left: { anchor: "__container__", align: HorizontalAlign.Start },
           bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
         })
     }
     .onClick(() => {
-      this.selectStatus=!this.selectStatus
+      this.selectStatus = !this.selectStatus
     })
   }
 }

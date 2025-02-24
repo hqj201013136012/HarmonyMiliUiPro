@@ -8,12 +8,12 @@ import {
   wirelessDefenseAreaList
 } from "../../viewmodel/SecurityData"
 
-@Component
+@ComponentV2
 export struct SecurityModeGridView {
-  @State type: string = ''
-  @State securityModeBannerList: Array<SecurityModeBannerClass> = []
-  @State securityModeStr: string = '有线防区'
-  @State securityOperateType: string = SECURITY_AT_HOME_TYPE
+  @Param type: string = ''
+  @Local securityModeBannerList: Array<SecurityModeBannerClass> = []
+  @Local securityModeStr: string = '有线防区'
+  @Local securityOperateType: string = SECURITY_AT_HOME_TYPE
 
   aboutToAppear(): void {
     this.securityModeBannerList =

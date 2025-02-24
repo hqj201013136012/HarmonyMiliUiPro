@@ -1,8 +1,8 @@
 import { SetHomeLeftMenuItemData } from "../viewmodel/SettingData"
 
-@Component
+@ComponentV2
 export struct ItemCommonLeftMenu {
-  @ObjectLink itemData: SetHomeLeftMenuItemData
+  @Require @Param itemData: SetHomeLeftMenuItemData
 
   build() {
     Column() {

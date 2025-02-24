@@ -5,14 +5,18 @@ import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar'
 import { MONITOR_DOOR_TYPE } from '../viewmodel/InterComData'
 
 @Entry
-@Component
+@ComponentV2
 struct MonitorHomePage {
-  @State menuTabStatus: string = MONITOR_DOOR_TYPE
+  @Local menuTabStatus: string = MONITOR_DOOR_TYPE
 
   build() {
     RelativeContainer() {
       HeaderTitleBar({ title: "预览" })
-      MonitorHomeLeftMenu({ itemType: this.menuTabStatus })
+      MonitorHomeLeftMenu({
+        itemType: this.menuTabStatus, changeItemType: (val: string) => {
+          this.menuTabStatus = val
+        }
+      })
         .alignRules({
           top: { anchor: "header_rl", align: VerticalAlign.Bottom },
           left: { anchor: "__container__", align: HorizontalAlign.Start },

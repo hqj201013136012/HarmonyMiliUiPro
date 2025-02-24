@@ -1,6 +1,6 @@
 import { ItemSetTextView } from "../../itemview/ItemSetTextView"
 
-@Component
+@ComponentV2
 export struct SystemInfoSetList {
   build() {
     Scroll() {

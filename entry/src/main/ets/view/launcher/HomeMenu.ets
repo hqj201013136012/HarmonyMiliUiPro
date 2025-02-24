@@ -1,10 +1,10 @@
 import { CommonIconAlertDialog } from "../../common/dialog/CommonIconAlertDialog"
 import { router } from "@kit.ArkUI"
 
-@Component
+@ComponentV2
 export struct HomeMenu {
-  @State alertIcon:ResourceStr=$r('app.media.tip_success')
-  @State alertText:string='成功'
+  @Local alertIcon:ResourceStr=$r('app.media.tip_success')
+  @Local alertText:string='成功'
   // alert提示弹窗
   alertDialogController: CustomDialogController | null = new CustomDialogController({
     builder: CommonIconAlertDialog({

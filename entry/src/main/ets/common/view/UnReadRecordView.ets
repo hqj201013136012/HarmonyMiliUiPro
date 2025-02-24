@@ -1,6 +1,6 @@
-@Component
+@ComponentV2
 export struct UnReadRecordView {
-  @State num: number = 0
+  @Param num: number = 0
   build() {
     Row(){
       Text("共有")
