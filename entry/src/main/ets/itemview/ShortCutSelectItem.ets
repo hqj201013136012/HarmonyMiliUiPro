@@ -1,21 +1,22 @@
-import { SelectShortCutItemData } from "../viewmodel/ShotCutCardData"
+import { SelectShortCutItemEntity } from "../viewmodel/ShotCutCardData"
 
 /**
  * 快捷方式的选择Item组件
  */
 @ComponentV2
 export struct ShortCutSelectItem {
-  @Require @Param itemData: SelectShortCutItemData
-  @Local selectStatus: boolean = false
+  @Require @Param itemData: SelectShortCutItemEntity
+  @Event changeIsSelect: (val: boolean) => void;
+ // @Local selectStatus: boolean = false
 
   build() {
     RelativeContainer() {
-      Text(this.itemData.name)
+      Text(this.itemData.cardBean.name)
         .fontSize(30)
         .fontColor('#ffffff')
         .margin({ left: 15, top: 15 })
 
-      Image(this.itemData.imageSrc)
+      Image(this.itemData.cardBean.imageSrc)
         .width(140)
         .height(140)
         .alignRules({
@@ -26,7 +27,7 @@ export struct ShortCutSelectItem {
       Checkbox({ name: 'checkbox1', group: 'checkboxGroup' })
         .width(40)
         .height(40)
-        .select(this.selectStatus)
+        .select(this.itemData.isSelect)
         .selectedColor(0x2495FF)
         .shape(CheckBoxShape.CIRCLE)
         .onChange((value: boolean) => {
@@ -39,7 +40,8 @@ export struct ShortCutSelectItem {
         })
     }
     .onClick(() => {
-      this.selectStatus = !this.selectStatus
+      this.changeIsSelect(!this.itemData.isSelect)
+     // this.itemData.isSelect = !this.itemData.isSelect
     })
   }
 }

@@ -1,5 +1,5 @@
 import { HeaderTitleBar } from '../view/launcher/HeaderTitleBar';
-import { ShortCutItemType, ShortCutTypeList } from '../viewmodel/ShotCutCardData';
+import { ShortCutItemEntity, ShortCutTypeList } from '../viewmodel/ShotCutCardData';
 import { router } from '@kit.ArkUI';
 
 @Entry
@@ -11,7 +11,7 @@ struct ShotCutList {
       HeaderTitleBar({ title: '添加快捷方式' })
 
       List({ space: 20, initialIndex: 0 }) {
-        ForEach(ShortCutTypeList, (item: ShortCutItemType) => {
+        ForEach(ShortCutTypeList, (item: ShortCutItemEntity) => {
           ListItem() {
             RelativeContainer() {
               Image(item.imageSrc)
