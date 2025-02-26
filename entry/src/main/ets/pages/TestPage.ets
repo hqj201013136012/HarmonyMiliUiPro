@@ -1,60 +1,171 @@
-import { GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions, GridObjectSortComponentType } from '@kit.ArkUI'
+import { DateTime, DateTimeFormat, DateTimePicker,
+  DateTimePickerConfig,
+  DateUtil, SuffixMode } from '@xinyansoft/oh-date-picker'
 
 @Entry
 @Component
 struct TestPage {
-  // 组件数据初始化
-  @State dataList: GridObjectSortComponentItem[] = [
-    {
-      id: 0,
-      url: $r('sys.media.ohos_save_button_filled'),
-      text: '下载',
-      selected: true,
-      order: 3
-    },
-    {
-      id: 1,
-      url: $r('sys.media.ohos_ic_public_web'),
-      text: '网路',
-      selected: true,
-      order: 9
-    },
-    {
-      id: 2,
-      url: $r('sys.media.ohos_ic_public_video'),
-      text: '视频',
-      selected: false,
-      order: 1
-    }
-  ]
+  @State @Watch('conConfigChanged') config : DateTimePickerConfig = {
+    format: DateTimeFormat.YmdHm,
+    start: '1900-01-01 00:00',
+    end: '2099-12-31 23:59',
+    selected: DateUtil.getTodayStr('yyyy-MM-dd HH:mm')
+  }
+  @State suffixMode: SuffixMode = SuffixMode.Together
+  @State selected: DateTime = new DateTime(this.config.format, this.config.selected)
 
-  // 组件配置信息初始化
-  @State option: GridObjectSortComponentOptions = {
-    type: GridObjectSortComponentType.IMAGE_TEXT,
-    imageSize: 45,
-    normalTitle: '菜单',
-    editTitle: '编辑',
-    showAreaTitle: '长按拖动排序',
-    addAreaTitle: '点击添加'
+
+  conConfigChanged() {
+    this.selected = new DateTime(this.config.format, this.config.selected)
   }
 
   build() {
     Column() {
-      GridObjectSortComponent({
-        options: this.option,
-        dataList: this.dataList,
-        // 保存编辑排序的回调函数，返回编辑后的数据。
-        onSave: (
-          select: Array<GridObjectSortComponentItem>,
-          unselect: Array<GridObjectSortComponentItem>
-        ) => {
-          // save ToDo
+      DateTimePicker({
+        config: this.config,
+        suffixMode: this.suffixMode,
+        selectedTextStyle: {
+          font: {
+            size: 15
+          },
+          color: Color.Black
         },
-        // 取消保存数据的回调。
-        onCancel: () =>{
-          // cancel ToDo
+        textStyle: {
+          font: {
+            size: 13
+          }
+        },
+        suffixTextStyle: {
+          font: {
+            size: 15
+          },
+          color: Color.Black
+        },
+        onSelectedCallback: (selected) => {
+          this.selected = selected
         }
-      })
-    }
+      }).width('100%')
+
+      Blank()
+      Text(`当前选择：${this.selected.format()}`)
+      Blank()
+
+      Row() {
+        Button('年月', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.Ym,
+              start : '1900-08',
+              end : '2100-08',
+              selected : '2024-08'
+            }
+          })
+
+        Button('年月日', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.Ymd,
+              start : '1900-08-29',
+              end : '2100-08-29',
+              selected : '2024-08-29'
+            }
+          })
+
+        Button('年月日时分', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.YmdHm,
+              start : '1900-08-29 12:00',
+              end : '2100-08-29 12:00',
+              selected : '2024-08-29 12:00'
+            }
+          })
+      }.width('100%')
+      .height(52)
+      .justifyContent(FlexAlign.SpaceAround)
+
+      Row() {
+        Button('年月日时分秒', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.YmdHms,
+              start : '1900-08-29 12:00:00',
+              end : '2100-08-29 12:00:00',
+              selected : '2024-08-29 12:00:00'
+            }
+          })
+        Button('时分秒', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.Hms,
+              start : '00:00:00',
+              end : '12:00:00',
+              selected : '06:00:00'
+            }
+          })
+        Button('时分', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.Hm,
+              start : '00:00',
+              end : '12:00',
+              selected : '06:00'
+            }
+          })
+      }.width('100%')
+      .height(52)
+      .justifyContent(FlexAlign.SpaceAround)
+
+      Row() {
+        Button('分秒', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.Ms,
+              start : '00:00',
+              end : '12:00',
+              selected : '06:00'
+            }
+          })
+        Button('后缀独立', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.suffixMode = SuffixMode.Separated
+          })
+        Button('后缀非独立', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.suffixMode = SuffixMode.Together
+          })
+      }.width('100%')
+      .height(52)
+      .justifyContent(FlexAlign.SpaceAround)
+
+    }.width('100%')
+    .height('100%')
   }
 }

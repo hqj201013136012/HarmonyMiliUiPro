@@ -10,6 +10,8 @@
     "pages/MessageListPage",
     "pages/MonitorHomePage",
     "pages/LylyHomePage",
-    "pages/TestPage"
+    "pages/TestPage",
+    "view/setting/WifiListPage",
+    "view/setting/TimeSetPage"
   ]
 }

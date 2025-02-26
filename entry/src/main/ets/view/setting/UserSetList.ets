@@ -1,5 +1,6 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
 import { ItemSetSwitchView } from "../../itemview/ItemSetSwitchView"
+import { router } from "@kit.ArkUI"
 
 @ComponentV2
 export struct UserSetList {
@@ -7,7 +8,17 @@ export struct UserSetList {
     Scroll() {
       Column({ space: 24 }) {
         ItemSetArrowView({ name: "无线网络" })
+          .onClick(() => {
+            router.pushUrl({
+              url: "view/setting/WifiListPage"
+            })
+          })
         ItemSetArrowView({ name: "时间设置" })
+          .onClick(() => {
+            router.pushUrl({
+              url: "view/setting/TimeSetPage"
+            })
+          })
         ItemSetArrowView({ name: "个性化设置" })
         ItemSetSwitchView({ name: "开启免打扰", discribeStr: "开启后，新消息将不会进行铃声提醒", swichStatus: true })
         ItemSetArrowView({ name: "免打扰时长", rightText: "30分钟" })
