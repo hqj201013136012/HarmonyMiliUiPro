@@ -10,7 +10,7 @@ export const OPERATE_RECORD_TYPE = "3"
 @ObservedV2
 export class SecurityHomeLeftMenuItemData {
   type: string
-  isSelect: boolean = false
+  @Trace isSelect: boolean = false
   name: string
   imageSrc: ResourceStr
 

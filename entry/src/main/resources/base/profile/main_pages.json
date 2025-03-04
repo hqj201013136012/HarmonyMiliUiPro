@@ -12,6 +12,11 @@
     "pages/LylyHomePage",
     "pages/TestPage",
     "view/setting/WifiListPage",
-    "view/setting/TimeSetPage"
+    "view/setting/TimeSetPage",
+    "view/setting/PersonalListPage",
+    "view/setting/ScreenProPicEditPage",
+    "view/setting/UserPwdManagerPage",
+    "view/setting/OpemDoorPwdManagerPage",
+    "view/setting/SecurityAppPage"
   ]
 }

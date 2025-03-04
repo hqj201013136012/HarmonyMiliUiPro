@@ -20,6 +20,11 @@ export struct UserSetList {
             })
           })
         ItemSetArrowView({ name: "个性化设置" })
+          .onClick(() => {
+            router.pushUrl({
+              url: "view/setting/PersonalListPage"
+            })
+          })
         ItemSetSwitchView({ name: "开启免打扰", discribeStr: "开启后，新消息将不会进行铃声提醒", swichStatus: true })
         ItemSetArrowView({ name: "免打扰时长", rightText: "30分钟" })
 

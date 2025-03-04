@@ -14,7 +14,7 @@ export const CALL_RECORD_TYPE = "4"
 @ObservedV2
 export class IntercomHomeLeftMenuItemData {
   type: string
-  isSelect: boolean = false
+  @Trace isSelect: boolean = false
   isTop: boolean = false
   isBottom: boolean = false
   name: string
