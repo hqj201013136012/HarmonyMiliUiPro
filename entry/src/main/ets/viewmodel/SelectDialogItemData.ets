@@ -30,3 +30,27 @@ export const screenProTimeList: SelectDialogItemData[] = [
   new SelectDialogItemData('30分钟',false,1800),
   new SelectDialogItemData('1小时',false,3600),
 ]
+
+export const securityAppList: SelectDialogItemData[] = [
+  new SelectDialogItemData('在家撤防',true),
+  new SelectDialogItemData('外出布防',false),
+  new SelectDialogItemData('夜间布防',false),
+]
+
+export const reFreqList: SelectDialogItemData[] = [
+  new SelectDialogItemData('每日',true),
+  new SelectDialogItemData('每周',false),
+  new SelectDialogItemData('每月',false),
+]
+
+export const reDateList: SelectDialogItemData[] = [
+  new SelectDialogItemData('星期一',true),
+  new SelectDialogItemData('星期二',false),
+  new SelectDialogItemData('星期三',false),
+  new SelectDialogItemData('星期四',false),
+  new SelectDialogItemData('星期五',false),
+  new SelectDialogItemData('星期六',false),
+  new SelectDialogItemData('星期日',false),
+]
+
+

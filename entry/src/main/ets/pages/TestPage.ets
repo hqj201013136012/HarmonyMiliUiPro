@@ -1,171 +1,59 @@
-import { DateTime, DateTimeFormat, DateTimePicker,
-  DateTimePickerConfig,
-  DateUtil, SuffixMode } from '@xinyansoft/oh-date-picker'
+// Index.ets
+import { ComponentContent } from '@kit.ArkUI';
+import { ControlCenterView } from '../common/dialog/ControlCenterView';
+import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
+
+class Params {
+  text: string = ""
+
+  constructor(text: string) {
+    this.text = text;
+  }
+}
+
 
 @Entry
 @Component
 struct TestPage {
-  @State @Watch('conConfigChanged') config : DateTimePickerConfig = {
-    format: DateTimeFormat.YmdHm,
-    start: '1900-01-01 00:00',
-    end: '2099-12-31 23:59',
-    selected: DateUtil.getTodayStr('yyyy-MM-dd HH:mm')
-  }
-  @State suffixMode: SuffixMode = SuffixMode.Together
-  @State selected: DateTime = new DateTime(this.config.format, this.config.selected)
+  @State message: string = "hello"
+  private ctx: UIContext = this.getUIContext();
+  private contentNode: ComponentContent<Object> =
+    new ComponentContent(this.ctx, wrapBuilder(ControlCenterView));
 
-
-  conConfigChanged() {
-    this.selected = new DateTime(this.config.format, this.config.selected)
+  aboutToAppear(): void {
+    PromptDialogHelper.setContext(this.ctx);
+    PromptDialogHelper.setContentNode(this.contentNode);
+    PromptDialogHelper.setOptions({ alignment: DialogAlignment.Top,})
   }
 
   build() {
-    Column() {
-      DateTimePicker({
-        config: this.config,
-        suffixMode: this.suffixMode,
-        selectedTextStyle: {
-          font: {
-            size: 15
-          },
-          color: Color.Black
-        },
-        textStyle: {
-          font: {
-            size: 13
-          }
-        },
-        suffixTextStyle: {
-          font: {
-            size: 15
-          },
-          color: Color.Black
-        },
-        onSelectedCallback: (selected) => {
-          this.selected = selected
-        }
-      }).width('100%')
+    Row() {
+      Column() {
+        Button("open dialog and update options")
+          .margin({ top: 50 })
+          .onClick(() => {
+            PromptDialogHelper.openDialog()
 
-      Blank()
-      Text(`当前选择：${this.selected.format()}`)
-      Blank()
+            // setTimeout(() => {
+            //   PromptDialogHelper.updateDialog({
+            //     alignment: DialogAlignment.Bottom,
+            //     offset: { dx: 0, dy: -50 }
+            //   })
+            // }, 1500)
+          })
+        Button("open dialog and update content")
+          .margin({ top: 50 })
+          .onClick(() => {
+            PromptDialogHelper.openDialog()
 
-      Row() {
-        Button('年月', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.Ym,
-              start : '1900-08',
-              end : '2100-08',
-              selected : '2024-08'
-            }
+            setTimeout(() => {
+              this.contentNode.update(new Params('update'))
+            }, 1500)
           })
-
-        Button('年月日', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.Ymd,
-              start : '1900-08-29',
-              end : '2100-08-29',
-              selected : '2024-08-29'
-            }
-          })
-
-        Button('年月日时分', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.YmdHm,
-              start : '1900-08-29 12:00',
-              end : '2100-08-29 12:00',
-              selected : '2024-08-29 12:00'
-            }
-          })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
-
-      Row() {
-        Button('年月日时分秒', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.YmdHms,
-              start : '1900-08-29 12:00:00',
-              end : '2100-08-29 12:00:00',
-              selected : '2024-08-29 12:00:00'
-            }
-          })
-        Button('时分秒', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.Hms,
-              start : '00:00:00',
-              end : '12:00:00',
-              selected : '06:00:00'
-            }
-          })
-        Button('时分', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.Hm,
-              start : '00:00',
-              end : '12:00',
-              selected : '06:00'
-            }
-          })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
-
-      Row() {
-        Button('分秒', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.config = {
-              format : DateTimeFormat.Ms,
-              start : '00:00',
-              end : '12:00',
-              selected : '06:00'
-            }
-          })
-        Button('后缀独立', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.suffixMode = SuffixMode.Separated
-          })
-        Button('后缀非独立', { type: ButtonType.Normal, stateEffect: true })
-          .borderRadius(8)
-          .backgroundColor(0x317aff)
-          .width(90)
-          .onClick(() => {
-            this.suffixMode = SuffixMode.Together
-          })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
-
-    }.width('100%')
+      }
+      .width('100%')
+      .height('100%')
+    }
     .height('100%')
   }
 }

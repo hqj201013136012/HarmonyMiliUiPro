@@ -3,6 +3,9 @@ import { BannerCards } from '../view/launcher/BannerCards'
 import { HomeMenu } from '../view/launcher/HomeMenu';
 import { HomeStatus } from '../view/launcher/HomeStatus';
 import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
+import { ComponentContent } from '@kit.ArkUI';
+import { ControlCenterView } from '../common/dialog/ControlCenterView';
+import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
 
 @Entry
 @ComponentV2
@@ -11,28 +14,37 @@ struct Index {
   @Local mDownY: number = 0
   @Local mMoveY: number = 0
   isShowWindow: boolean = false
-  alertDialogController: CustomDialogController | null = new CustomDialogController({
-    builder: ControlCenterDialog(),
-    alignment:DialogAlignment.Top,
-    width:'100%',
-    height:288,
-    cornerRadius:0,
-    backgroundColor:'#00000000',
-    // openAnimation: {
-    //   duration: 500,
-    //   delay: 500,
-    //   playMode: PlayMode.Alternate,
-    //   onFinish: () => {
-    //     console.info('play end')
-    //   }
-    // },
-    onWillDismiss:(dismissDialogAction: DismissDialogAction)=> {
-      dismissDialogAction.dismiss()
+  private ctx: UIContext = this.getUIContext();
+  private contentNode: ComponentContent<Object> =
+    new ComponentContent(this.ctx, wrapBuilder(ControlCenterView));
+  // alertDialogController: CustomDialogController | null = new CustomDialogController({
+  //   builder: ControlCenterDialog(),
+  //   alignment:DialogAlignment.Top,
+  //   width:'100%',
+  //   height:288,
+  //   cornerRadius:0,
+  //   backgroundColor:'#00000000',
+  //   // openAnimation: {
+  //   //   duration: 500,
+  //   //   delay: 500,
+  //   //   playMode: PlayMode.Alternate,
+  //   //   onFinish: () => {
+  //   //     console.info('play end')
+  //   //   }
+  //   // },
+  //   onWillDismiss:(dismissDialogAction: DismissDialogAction)=> {
+  //     dismissDialogAction.dismiss()
+  //     this.isShowWindow=false
+  //   }
+  // })
+
+  aboutToAppear(): void {
+    PromptDialogHelper.setContext(this.ctx);
+    PromptDialogHelper.setContentNode(this.contentNode);
+    PromptDialogHelper.setOptions({ alignment: DialogAlignment.Top,onDidDisappear:()=>{
       this.isShowWindow=false
-    }
-  })
-
-
+    }})
+  }
 
   build() {
 
@@ -72,11 +84,11 @@ struct Index {
         if (event.type === TouchType.Move) {
           this.mMoveY = event.touches[0].windowY
           if (this.mMoveY < 100 && (this.mMoveY - this.mDownY) > 30 && (!this.isShowWindow)) {
-            if(this.alertDialogController!=undefined){
               this.isShowWindow = true
               console.log('showdialog')
-              this.alertDialogController.open()
-            }
+              PromptDialogHelper.openDialog()
+             // this.alertDialogController.open()
+
 
           }
         }

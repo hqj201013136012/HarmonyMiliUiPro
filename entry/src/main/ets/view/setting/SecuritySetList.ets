@@ -1,9 +1,13 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
 import { ItemSetSwitchView } from "../../itemview/ItemSetSwitchView"
 import { router } from "@kit.ArkUI"
+import { CommonSelectListDialog } from "../../common/dialog/CommonSelectListDialog"
+import { securityAppList, SelectDialogItemData } from "../../viewmodel/SelectDialogItemData"
 
 @ComponentV2
 export struct SecuritySetList {
+
+
   build() {
     Scroll() {
       Column() {
@@ -34,8 +38,18 @@ export struct SecuritySetList {
           })
         Column() {
           ItemSetArrowView({ name: "防区启用设置" })
+            .onClick(()=>{
+              router.pushUrl({
+                url: "view/setting/DefenceOpenSetPage",
+              })
+            })
           Divider().height(1).color('#262626').margin({ left: 48, right: 48 })
           ItemSetArrowView({ name: "夜间防区设置" })
+            .onClick(()=>{
+              router.pushUrl({
+                url: "view/setting/NightDefenceSetPage",
+              })
+            })
         }
         .backgroundColor('#1A1A1A')
         .borderRadius(12)

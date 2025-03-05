@@ -17,6 +17,8 @@
     "view/setting/ScreenProPicEditPage",
     "view/setting/UserPwdManagerPage",
     "view/setting/OpemDoorPwdManagerPage",
-    "view/setting/SecurityAppPage"
+    "view/setting/SecurityAppPage",
+    "view/setting/DefenceOpenSetPage",
+    "view/setting/NightDefenceSetPage"
   ]
 }
