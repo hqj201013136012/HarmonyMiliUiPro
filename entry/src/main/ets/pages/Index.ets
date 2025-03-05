@@ -4,7 +4,7 @@ import { HomeMenu } from '../view/launcher/HomeMenu';
 import { HomeStatus } from '../view/launcher/HomeStatus';
 import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 import { ComponentContent } from '@kit.ArkUI';
-import { ControlCenterView } from '../common/dialog/ControlCenterView';
+import { ControlCenterView } from '../common/dialog/dialogview/ControlCenterView';
 import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
 
 @Entry

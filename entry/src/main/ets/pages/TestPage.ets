@@ -1,6 +1,6 @@
 // Index.ets
 import { ComponentContent } from '@kit.ArkUI';
-import { ControlCenterView } from '../common/dialog/ControlCenterView';
+import { ControlCenterView } from '../common/dialog/dialogview/ControlCenterView';
 import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
 
 class Params {

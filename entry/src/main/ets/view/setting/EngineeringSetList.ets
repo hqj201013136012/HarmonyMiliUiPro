@@ -1,4 +1,5 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
+import { router } from "@kit.ArkUI"
 
 @ComponentV2
 export struct EngineeringSetList {
@@ -16,8 +17,18 @@ export struct EngineeringSetList {
 
         Column() {
           ItemSetArrowView({ name: "安防参数" })
+            .onClick(()=>{
+              router.pushUrl({
+                url: "view/setting/SecurityParamPage",
+              })
+            })
           Divider().height(1).color('#262626').margin({ left: 48, right: 48 })
           ItemSetArrowView({ name: "防区设置" })
+            .onClick(()=>{
+              router.pushUrl({
+                url: "view/setting/DefenceDetailSetPage",
+              })
+            })
         }
         .backgroundColor('#1A1A1A')
         .borderRadius(12)

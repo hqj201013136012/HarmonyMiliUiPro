@@ -19,6 +19,8 @@
     "view/setting/OpemDoorPwdManagerPage",
     "view/setting/SecurityAppPage",
     "view/setting/DefenceOpenSetPage",
-    "view/setting/NightDefenceSetPage"
+    "view/setting/NightDefenceSetPage",
+    "view/setting/DefenceDetailSetPage",
+    "view/setting/SecurityParamPage"
   ]
 }

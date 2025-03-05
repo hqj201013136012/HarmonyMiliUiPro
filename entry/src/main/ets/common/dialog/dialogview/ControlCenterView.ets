@@ -1,5 +1,5 @@
 import { router } from "@kit.ArkUI"
-import { PromptDialogHelper } from "./helper/PromptDialogHelper"
+import { PromptDialogHelper } from "../helper/PromptDialogHelper"
 
 @Builder
 export function ControlCenterView() {

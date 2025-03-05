@@ -53,4 +53,12 @@ export const reDateList: SelectDialogItemData[] = [
   new SelectDialogItemData('星期日',false),
 ]
 
+export const probeTypeList: SelectDialogItemData[] = [
+  new SelectDialogItemData('紧急报警',true),
+  new SelectDialogItemData('火灾探测',false),
+  new SelectDialogItemData('瓦斯探测',false),
+  new SelectDialogItemData('大门入侵',true),
+  new SelectDialogItemData('客厅探测',false),
+]
+
 
