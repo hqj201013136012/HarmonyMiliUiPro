@@ -13,7 +13,7 @@ import {
 } from '@xinyansoft/oh-date-picker'
 import { ComponentContent } from '@kit.ArkUI'
 import { CommonDateAndTimeView, DateAndTimeParams } from '../../common/dialog/dialogview/CommonDateAndTimeView'
-import { PromptDialogHelper } from '../../common/dialog/helper/PromptDialogHelper'
+import { PromptDialogHelper } from '../../common/helper/PromptDialogHelper'
 
 /**
  * 时间设置页面

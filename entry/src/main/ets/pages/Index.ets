@@ -5,7 +5,7 @@ import { HomeStatus } from '../view/launcher/HomeStatus';
 import { HomeTimeContent } from '../view/launcher/HomeTimeContent';
 import { ComponentContent } from '@kit.ArkUI';
 import { ControlCenterView } from '../common/dialog/dialogview/ControlCenterView';
-import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
+import { PromptDialogHelper } from '../common/helper/PromptDialogHelper';
 
 @Entry
 @ComponentV2

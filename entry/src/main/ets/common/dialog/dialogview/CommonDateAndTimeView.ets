@@ -6,7 +6,7 @@ import {
   DateUtil,
   SuffixMode
 } from '@xinyansoft/oh-date-picker'
-import { PromptDialogHelper } from '../helper/PromptDialogHelper'
+import { PromptDialogHelper } from '../../helper/PromptDialogHelper'
 
 export class DateAndTimeParams {
   currentDate: string = ""

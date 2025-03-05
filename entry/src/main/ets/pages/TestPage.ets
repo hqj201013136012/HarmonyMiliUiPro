@@ -1,7 +1,8 @@
 // Index.ets
 import { ComponentContent } from '@kit.ArkUI';
 import { ControlCenterView } from '../common/dialog/dialogview/ControlCenterView';
-import { PromptDialogHelper } from '../common/dialog/helper/PromptDialogHelper';
+import { kvManagerHelper, kvValueType } from '../common/helper/kvManagerHelper';
+import { PromptDialogHelper } from '../common/helper/PromptDialogHelper';
 
 class Params {
   text: string = ""
@@ -23,7 +24,7 @@ struct TestPage {
   aboutToAppear(): void {
     PromptDialogHelper.setContext(this.ctx);
     PromptDialogHelper.setContentNode(this.contentNode);
-    PromptDialogHelper.setOptions({ alignment: DialogAlignment.Top,})
+    PromptDialogHelper.setOptions({ alignment: DialogAlignment.Top, })
   }
 
   build() {
@@ -32,7 +33,7 @@ struct TestPage {
         Button("open dialog and update options")
           .margin({ top: 50 })
           .onClick(() => {
-            PromptDialogHelper.openDialog()
+            // PromptDialogHelper.openDialog()
 
             // setTimeout(() => {
             //   PromptDialogHelper.updateDialog({
@@ -40,15 +41,20 @@ struct TestPage {
             //     offset: { dx: 0, dy: -50 }
             //   })
             // }, 1500)
+             kvManagerHelper.getValue("testKey1",(dataValue:kvValueType)=>{
+              console.log(`TestPage in getting data. Data:${dataValue}`);
+            })
+
           })
         Button("open dialog and update content")
           .margin({ top: 50 })
           .onClick(() => {
-            PromptDialogHelper.openDialog()
-
-            setTimeout(() => {
-              this.contentNode.update(new Params('update'))
-            }, 1500)
+            // PromptDialogHelper.openDialog()
+            //
+            // setTimeout(() => {
+            //   this.contentNode.update(new Params('update'))
+            // }, 1500)
+            kvManagerHelper.putValue("testKey1","testValue1")
           })
       }
       .width('100%')

@@ -2,11 +2,13 @@ import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.Ab
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { kvManagerHelper } from '../common/helper/kvManagerHelper';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+    kvManagerHelper.init(this.context)
   }
 
   onDestroy(): void {
