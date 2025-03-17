@@ -161,6 +161,7 @@ export class MonitorDeviceItemData {
 
 // 视频
 export const LYLY_SNAP_VEDIO_TYPE = "1"
+
 // 音频
 export const LYLY_SNAP_AUDIO_TYPE = "2"
 
@@ -197,16 +198,50 @@ export class LylyAudioItemData {
 
 // 留影留言影音列表数据
 export const lylyAudioDataList: LylyAudioItemData[] = [
-  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17",  false,
+  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17", false,
     $r('app.media.icon_lyly_play')),
-  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17",  false,
+  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17", false,
     $r('app.media.icon_lyly_voice')),
-  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17",  false,
+  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17", false,
     $r('app.media.icon_lyly_play')),
-  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17",  true,
+  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17", true,
     $r('app.media.icon_lyly_voice')),
-  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17",  true,
+  new LylyAudioItemData(LYLY_SNAP_VEDIO_TYPE, "区口机1", "01:00", "2023.06.01 14:00:17", true,
     $r('app.media.icon_lyly_play')),
-  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17",  true,
+  new LylyAudioItemData(LYLY_SNAP_AUDIO_TYPE, "区口机2", "01:00", "2023.06.01 14:00:17", true,
     $r('app.media.icon_lyly_voice')),
+]
+
+// 普通数字按键
+export const CALL_KEY_BOARD_COMMON = 1
+// 重播
+export const CALL_KEY_BOARD_RE_DIAL = 2
+// 拨号
+export const CALL_KEY_BOARD_DIAL = 3
+// 呼叫住户键盘种类实体
+export class callRdBoardItemData {
+  type: number = 0 // 1:普通数字按键，2：重播，3：拨号
+  valueName: string
+
+  constructor(type: number,
+    valueName: string) {
+    this.type = type
+    this.valueName = valueName
+  }
+}
+
+
+export const boardList: callRdBoardItemData[] = [
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "1"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "2"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "3"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "4"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "5"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "6"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "7"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "8"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "9"),
+  new callRdBoardItemData(CALL_KEY_BOARD_RE_DIAL, "重播"),
+  new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "0"),
+  new callRdBoardItemData(CALL_KEY_BOARD_DIAL, "拨号"),
 ]

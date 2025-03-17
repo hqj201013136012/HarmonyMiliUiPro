@@ -56,7 +56,7 @@ export struct CallCenterList {
                 .width('100%')
                 .onClick(()=>{
                   router.pushUrl({
-                    url: 'pages/CallPage',
+                    url: 'pages/AudioCallPage',
                   })
                 })
               })

@@ -1,0 +1,20 @@
+{
+  "routerMap": [
+    {
+      "name": "UserSetList",
+      "pageSourceFile": "src/main/ets/view/setting/UserSetList.ets",
+      "buildFunction": "UserSetListBuilder",
+      "data": {
+        "description": "this is UserSetList"
+      }
+    },
+    {
+      "name": "SecuritySetList",
+      "pageSourceFile": "src/main/ets/view/setting/SecuritySetList.ets",
+      "buildFunction": "SecuritySetListBuilder",
+      "data": {
+        "description": "this is SecuritySetList"
+      }
+    }
+  ]
+}

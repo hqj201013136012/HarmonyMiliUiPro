@@ -2,6 +2,7 @@ import { CALL_CENTER_TYPE, CALL_EXTENSION_TYPE, CALL_RECORD_TYPE, CALL_USER_TYPE
 import { CallCenterList } from "./CallCenterList"
 import { CallExtensionList } from "./CallExtensionList"
 import { CallRecordClassify } from "./CallRecordClassify"
+import { CallResidentKeyBoard } from "./CallResidentKeyBoard"
 
 
 @ComponentV2
@@ -14,7 +15,7 @@ export struct IntercomHomeRightContent {
         CallCenterList({type:this.menuType})
 
       } else if (this.menuType == CALL_USER_TYPE) {
-
+        CallResidentKeyBoard()
 
       } else if (this.menuType == CALL_EXTENSION_TYPE) {
         CallExtensionList({type :this.menuType})

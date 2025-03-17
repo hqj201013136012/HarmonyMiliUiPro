@@ -95,7 +95,7 @@ export struct MonitorDeviceList {
               .width('100%')
               .onClick(() => {
                 router.pushUrl({
-                  url: 'pages/CallPage',
+                  url: 'pages/MonitorPage',
                 })
               })
             })

@@ -5,7 +5,7 @@
     "pages/ShortCutSelect",
     "pages/SettingHomePage",
     "pages/IntercomHomePage",
-    "pages/CallPage",
+    "pages/AudioCallPage",
     "pages/SecurityHomePage",
     "pages/MessageListPage",
     "pages/MonitorHomePage",
@@ -21,6 +21,7 @@
     "view/setting/DefenceOpenSetPage",
     "view/setting/NightDefenceSetPage",
     "view/setting/DefenceDetailSetPage",
-    "view/setting/SecurityParamPage"
+    "view/setting/SecurityParamPage",
+    "pages/MonitorPage"
   ]
 }
