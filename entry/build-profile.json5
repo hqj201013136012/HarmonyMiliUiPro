@@ -28,6 +28,9 @@
     },
     {
       "name": "ohosTest",
+    },
+    {
+      "name": "openHarmony"
     }
   ]
 }

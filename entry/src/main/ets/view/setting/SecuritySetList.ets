@@ -6,8 +6,6 @@ import { securityAppList, SelectDialogItemData } from "../../viewmodel/SelectDia
 
 @ComponentV2
 export struct SecuritySetList {
-
-
   build() {
     Scroll() {
       Column() {

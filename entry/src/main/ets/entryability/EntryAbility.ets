@@ -48,6 +48,13 @@ export default class EntryAbility extends UIAbility {
         console.error(`Failed to set the navigation indicator to be invisible. Code is ${err.code}, message is ${err.message}`);
       });
 
+      try{
+        windowClass.setPreferredOrientation(window.Orientation.LANDSCAPE);
+        console.error(`setPreferredOrientation`);
+      }catch (exception) {
+        console.error(`setPreferredOrientation exception`);
+      }
+
 
     });
 

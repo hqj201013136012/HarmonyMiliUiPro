@@ -2,7 +2,8 @@
   "modelVersion": "5.0.1",
   "description": "Please describe the basic information.",
   "dependencies": {
-    "@xinyansoft/oh-date-picker": "^0.0.5"
+    "@xinyansoft/oh-date-picker": "^0.0.5",
+    "@mili/community": "file:community.har"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.19",

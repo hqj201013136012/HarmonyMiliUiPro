@@ -1,12 +1,39 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.cer",
+          "storePassword": "0000001BB206D275010BE816AC55C58210F28B50FB5DCF935404DE8C8D323736EDB25A1F750393F5A1207E",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B6306A565EE11AF10765B8CFC41DDDB2C68DB1A8A0230E472AB02435108359A3DCDF30F0D66E937",
+          "profile": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
         "compatibleSdkVersion": "5.0.1(13)",
         "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      },
+      {
+        "name": "openHarmony",
+        "signingConfig": "default",
+        "compatibleSdkVersion": 12,
+        "compileSdkVersion": 12,
+        "runtimeOS": "OpenHarmony",
         "buildOption": {
           "strictMode": {
             "caseSensitiveCheck": true,
@@ -34,6 +61,12 @@
           "applyToProducts": [
             "default"
           ]
+        },
+        {
+          "name": "openHarmony",
+          "applyToProducts": [
+            "openHarmony"
+          ],
         }
       ]
     }

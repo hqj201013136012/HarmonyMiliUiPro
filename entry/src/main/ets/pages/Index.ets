@@ -83,7 +83,7 @@ struct Index {
         }
         if (event.type === TouchType.Move) {
           this.mMoveY = event.touches[0].windowY
-          if (this.mMoveY < 100 && (this.mMoveY - this.mDownY) > 30 && (!this.isShowWindow)) {
+          if (this.mMoveY < 300 && (this.mMoveY - this.mDownY) > 30 && (!this.isShowWindow)) {
               this.isShowWindow = true
               console.log('showdialog')
               PromptDialogHelper.openDialog()

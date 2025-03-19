@@ -1,157 +1,219 @@
-// xxx.ets
+//PageOne.ets
 @Entry
 @Component
 struct TestPage {
-  @State height1: number = 450;
-  @State fontSize1: number = 16;
-  @State fontWeight1: number = 400;
-  @State color1: Color = Color.Blue;
-  scroll: Scroller = new Scroller();
-  fontStyleAttr1: TextStyle = new TextStyle({ fontColor: Color.Blue });
-  fontStyleAttr2: StyledStringValue = new TextStyle({ fontColor: Color.Orange });
-  // 创建可读写属性字符串的对象mutableStyledString1
-  mutableStyledString1: MutableStyledString = new MutableStyledString("运动45分钟");
-  // 创建构造入参有字符串和样式的对象mutableStyledString2
-  mutableStyledString2: MutableStyledString = new MutableStyledString("test hello world", [{
-    start: 0,
-    length: 5,
-    styledKey: StyledStringKey.FONT,
-    styledValue: this.fontStyleAttr1
-  }]);
-  // 创建只读属性字符串对象styledString2
-  styledString2: StyledString = new StyledString("运动45分钟");
-  spanStyle1: SpanStyle = {
-    start: 0,
-    length: 5,
-    styledKey: StyledStringKey.FONT,
-    styledValue: new TextStyle({ fontColor: Color.Pink })
-  };
-  spanStyle2: SpanStyle = {
-    start: 0,
-    length: 2,
-    styledKey: StyledStringKey.FONT,
-    styledValue: new TextStyle({ fontColor: Color.Red })
-  };
-  @State string1: string = '';
-  @State fontColor1: ResourceColor = Color.Red;
-  controller1: TextController = new TextController();
-  controller2: TextController = new TextController();
-  controller3: TextController = new TextController();
-
-  async onPageShow() {
-    this.controller1.setStyledString(this.styledString2)
-    this.controller2.setStyledString(this.mutableStyledString1)
-    this.controller3.setStyledString(this.mutableStyledString2)
-  }
+  @Provide('pathInfos') pathInfos: NavPathStack = new NavPathStack();
+  private listArray: Array<string> = ['WLAN', 'Bluetooth', 'Personal Hotpot', 'Connect & Share'];
 
   build() {
     Column() {
-      Scroll(this.scroll) {
-        Column() {
-          // 显示属性字符串
-          Text(undefined, { controller: this.controller1 })
-          Text(undefined, { controller: this.controller3 }).key('mutableStyledString2')
-          Button('修改string1的值')
-            .onClick(() => {
-              let result = this.mutableStyledString1.equals(this.styledString2);
-              if (result) {
-                this.string1 = this.mutableStyledString1.getString();
-                console.info("mutableStyledString1 content:", this.mutableStyledString1.getString());
-                console.info("mutableStyledString1 length:", this.mutableStyledString1.length);
-              }
-            })
+      Navigation(this.pathInfos) {
+        TextInput({ placeholder: '输入关键字搜索' })
+          .width('90%')
+          .height(40)
+          .margin({ bottom: 10 })
 
-          // 属性字符串与Span冲突时忽略Span,以及样式与Text组件属性未冲突部分生效Text设置的属性
-          Text(undefined, { controller: this.controller2 }) {
-            Span("span and styledString test")
-              .fontColor(Color.Yellow)
-              .decoration({ type: TextDecorationType.LineThrough })
-            ImageSpan($r('app.media.startIcon'))
-          }
-          .key('styledString2')
-          .fontColor(this.fontColor1)
-          .letterSpacing(10)
-          .fontSize(32)
-          .fontWeight(600)
-          .fontStyle(FontStyle.Italic)
-          .lineHeight(30)
-          .textShadow({ radius: 5, color: Color.Blue, offsetX: 5, offsetY: 5 })
-          .textCase(TextCase.UpperCase)
-          .decoration({ type: TextDecorationType.LineThrough, color: Color.Yellow })
-          .baselineOffset(2)
-          .copyOption(CopyOptions.InApp)
-          .margin({ top: 10 })
-          .draggable(true)
-
-          // 以上冲突测试对照组
-          Text() {
-            Span(this.string1)
-              .fontColor(this.color1)
-              .decoration({ type: TextDecorationType.LineThrough })
-            ImageSpan($r('app.media.startIcon'))
-              .width(50).height(50)
-          }
-          .letterSpacing(10)
-          .fontSize(32)
-          .fontWeight(600)
-          .fontStyle(FontStyle.Italic)
-          .lineHeight(30)
-          .textShadow({ radius: 5, color: Color.Blue, offsetX: 5, offsetY: 5 })
-          .textCase(TextCase.UpperCase)
-          .decoration({ type: TextDecorationType.LineThrough, color: Color.Yellow })
-          .baselineOffset(2)
-
-          Button('设置样式及替换文本')
-            .onClick(() => {
-              this.mutableStyledString1.replaceStyle({
-                start: 2,
-                length: 2,
-                styledKey: StyledStringKey.FONT,
-                styledValue: this.fontStyleAttr1
-              })
-              this.mutableStyledString1.insertString(0, "压力85偏高，")
-              this.mutableStyledString1.setStyle({
-                start: 2,
-                length: 2,
-                styledKey: StyledStringKey.FONT,
-                styledValue: this.fontStyleAttr2
-              })
-              this.controller2.setStyledString(this.mutableStyledString1)
-            })
-            .margin({ top: 10 })
-
-          Button('查询样式及清空样式')
-            .onClick(() => {
-              let styles = this.mutableStyledString1.getStyles(0, this.mutableStyledString1.length)
-              if (styles.length == 2) {
-                for (let i = 0; i < styles.length; i++) {
-                  console.info('StyledString style object start:' + styles[i].start)
-                  console.info('StyledString style object length:' + styles[i].length)
-                  console.info('StyledString style object key:' + styles[i].styledKey)
-                  if (styles[i].styledKey === 0) {
-                    let fontAttr = styles[i].styledValue as TextStyle;
-                    console.info('StyledString fontColor:' + fontAttr.fontColor)
-                  }
+        // 通过List定义导航的一级界面
+        List({ space: 12, initialIndex: 0 }) {
+          ForEach(this.listArray, (item: string) => {
+            ListItem() {
+              Row() {
+                Row() {
+                  Text(`${item.slice(0, 1)}`)
+                    .fontColor(Color.White)
+                    .fontSize(14)
+                    .fontWeight(FontWeight.Bold)
                 }
-              }
-              if (styles[0] !== undefined) {
-                this.mutableStyledString2.setStyle(styles[0]);
-                this.controller3.setStyledString(this.mutableStyledString2);
-              }
-              this.mutableStyledString1.removeStyles(2, 3);
-              this.controller2.setStyledString(this.mutableStyledString1);
-            })
-            .margin({ top: 10 })
-        }.width('100%')
+                .width(30)
+                .height(30)
+                .backgroundColor('#a8a8a8')
+                .margin({ right: 20 })
+                .borderRadius(20)
+                .justifyContent(FlexAlign.Center)
 
+                Column() {
+                  Text(item)
+                    .fontSize(16)
+                    .margin({ bottom: 5 })
+                }
+                .alignItems(HorizontalAlign.Start)
+
+                Blank()
+
+                Row()
+                  .width(12)
+                  .height(12)
+                  .margin({ right: 15 })
+                  .border({
+                    width: { top: 2, right: 2 },
+                    color: 0xcccccc
+                  })
+                  .rotate({ angle: 45 })
+              }
+              .borderRadius(15)
+              .shadow({ radius: 100, color: '#ededed' })
+              .width('90%')
+              .alignItems(VerticalAlign.Center)
+              .padding({ left: 15, top: 15, bottom: 15 })
+              .backgroundColor(Color.White)
+            }
+            .width('100%')
+            .onClick(() => {
+              this.pathInfos.pushPathByName(`${item}`, '详情页面参数')//将name指定的NaviDestination页面信息入栈,传递的参数为param
+            })
+          }, (item: string): string => item)
+        }
+        .listDirection(Axis.Vertical)
+        .edgeEffect(EdgeEffect.Spring)
+        .sticky(StickyStyle.Header)
+        .chainAnimation(false)
+        .width('100%')
       }
-      .expandSafeArea([SafeAreaType.KEYBOARD])
-      .scrollable(ScrollDirection.Vertical)
-      .scrollBar(BarState.On)
-      .scrollBarColor(Color.Gray)
-      .scrollBarWidth(10)
-      .edgeEffect(EdgeEffect.None)
+      .width('100%')
+      .mode(NavigationMode.Auto)
+      .title('设置') // 设置标题文字
     }
-    .width('100%')
+    .size({ width: '100%', height: '100%' })
+    .backgroundColor(0xf4f4f5)
+  }
+}
+
+
+
+
+
+/*
+ssssssssssss*/
+//PageOne.ets
+@Builder
+export function MyCommonPageBuilder(name: string, param: string) {
+  MyCommonPage({ name: name, value: param })
+}
+
+@Component
+export struct MyCommonPage {
+  pathInfos: NavPathStack = new NavPathStack();
+  name: String = '';
+  @State value: String = '';
+
+  build() {
+    NavDestination() {
+      Column() {
+        Text(`${this.name}设置页面`)
+          .width('100%')
+          .fontSize(20)
+          .fontColor(0x333333)
+          .textAlign(TextAlign.Center)
+          .textShadow({
+            radius: 2,
+            offsetX: 4,
+            offsetY: 4,
+            color: 0x909399
+          })
+          .padding({ top: 30 })
+        Text(`${JSON.stringify(this.value)}`)
+          .width('100%')
+          .fontSize(18)
+          .fontColor(0x666666)
+          .textAlign(TextAlign.Center)
+          .padding({ top: 45 })
+        Button('返回')
+          .width('50%')
+          .height(40)
+          .margin({ top: 50 })
+          .onClick(() => {
+            //弹出路由栈栈顶元素，返回上个页面
+            this.pathInfos.pop();
+          })
+      }
+      .size({ width: '100%', height: '100%' })
+    }.title(`${this.name}`)
+    .onReady((ctx: NavDestinationContext) => {
+      //NavDestinationContext获取当前所在的页面栈
+      this.pathInfos = ctx.pathStack;
+    })
+
+  }
+}
+
+
+
+
+/*bbbbbbbbbbbbbbbbbb*/
+//PageTwo.ets
+@Builder
+export function MySharePageBuilder(name: string, param: string) {
+  MySharePage({ name: name })
+}
+
+@Component
+export struct MySharePage {
+  pathInfos: NavPathStack = new NavPathStack();
+  name: String = '';
+  private listArray: Array<string> = ['Projection', 'Print', 'VPN', 'Private DNS', 'NFC'];
+
+  build() {
+    NavDestination() {
+      Column() {
+        List({ space: 12, initialIndex: 0 }) {
+          ForEach(this.listArray, (item: string) => {
+            ListItem() {
+              Row() {
+                Row() {
+                  Text(`${item.slice(0, 1)}`)
+                    .fontColor(Color.White)
+                    .fontSize(14)
+                    .fontWeight(FontWeight.Bold)
+                }
+                .width(30)
+                .height(30)
+                .backgroundColor('#a8a8a8')
+                .margin({ right: 20 })
+                .borderRadius(20)
+                .justifyContent(FlexAlign.Center)
+
+                Column() {
+                  Text(item)
+                    .fontSize(16)
+                    .margin({ bottom: 5 })
+                }
+                .alignItems(HorizontalAlign.Start)
+
+                Blank()
+
+                Row()
+                  .width(12)
+                  .height(12)
+                  .margin({ right: 15 })
+                  .border({
+                    width: { top: 2, right: 2 },
+                    color: 0xcccccc
+                  })
+                  .rotate({ angle: 45 })
+              }
+              .borderRadius(15)
+              .shadow({ radius: 100, color: '#ededed' })
+              .width('90%')
+              .alignItems(VerticalAlign.Center)
+              .padding({ left: 15, top: 15, bottom: 15 })
+              .backgroundColor(Color.White)
+            }
+            .width('100%')
+            .onClick(() => {
+              this.pathInfos.pushPathByName(`${item}`, '页面设置参数')
+            })
+          }, (item: string): string => item)
+        }
+        .listDirection(Axis.Vertical)
+        .edgeEffect(EdgeEffect.Spring)
+        .sticky(StickyStyle.Header)
+        .width('100%')
+      }
+      .size({ width: '100%', height: '100%' })
+    }.title(`${this.name}`)
+    .onReady((ctx: NavDestinationContext) => {
+      //NavDestinationContext获取当前所在的页面栈
+      this.pathInfos = ctx.pathStack;
+    })
   }
 }
