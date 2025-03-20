@@ -12,7 +12,7 @@ export struct HomeStatus {
           .fontColor('#ffffff')
           .onClick(()=>{
             router.pushUrl({
-              url: 'pages/TestPage'
+              url: 'pages/test/TestHomePage'
             })
           })
         Image($r('app.media.icon_information'))

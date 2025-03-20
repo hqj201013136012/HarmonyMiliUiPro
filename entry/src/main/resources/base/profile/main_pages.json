@@ -10,7 +10,7 @@
     "pages/MessageListPage",
     "pages/MonitorHomePage",
     "pages/LylyHomePage",
-    "pages/TestPage",
+    "pages/test/TestPage",
     "view/setting/WifiListPage",
     "view/setting/TimeSetPage",
     "view/setting/PersonalListPage",
@@ -22,6 +22,13 @@
     "view/setting/NightDefenceSetPage",
     "view/setting/DefenceDetailSetPage",
     "view/setting/SecurityParamPage",
-    "pages/MonitorPage"
-  ]
+    "pages/MonitorPage",
+    "pages/test/ScreenMatchPage",
+    "pages/test/NavigationTestPage",
+    "pages/test/TestHomePage"
+  ],
+  "window": {
+    "designWidth": 1280,
+    "autoDesignWidth": false
+  }
 }
