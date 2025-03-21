@@ -25,7 +25,9 @@
     "pages/MonitorPage",
     "pages/test/ScreenMatchPage",
     "pages/test/NavigationTestPage",
-    "pages/test/TestHomePage"
+    "pages/test/TestHomePage",
+    "pages/GuideEnterPage",
+    "pages/GuideViewPage"
   ],
   "window": {
     "designWidth": 1280,
