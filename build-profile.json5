@@ -6,9 +6,9 @@
         "type": "HarmonyOS",
         "material": {
           "certpath": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.cer",
-          "storePassword": "0000001BB206D275010BE816AC55C58210F28B50FB5DCF935404DE8C8D323736EDB25A1F750393F5A1207E",
+          "storePassword": "00000019B9C8756494C5CB4DF957B001F32440D5A44091E1A802062A4BBD72A1074AAE9F349805BE49",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B6306A565EE11AF10765B8CFC41DDDB2C68DB1A8A0230E472AB02435108359A3DCDF30F0D66E937",
+          "keyPassword": "00000019C49566952F2265D8535059A96DF7B341341E2121E6B62AE1463B04CDF702569F355780AABB",
           "profile": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\default_MiliUiPro_gdI14suX9_cMs5dk0nKWl0Rn8CSpjEZe3BOasLMf8RE=.p12"
@@ -19,7 +19,7 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "compatibleSdkVersion": "5.0.1(13)",
+        "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {

@@ -140,7 +140,7 @@ export struct BannerCards {
               .height("100%")
               .width('100%')
               .borderRadius(20)
-              .backgroundColor('#303030')
+              .backgroundColor('#1A1A1A')
 
             },(itemCard: HomeCardItemEntity,index:number) => itemCard.type + itemCard.itemId + index)
           }

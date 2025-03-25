@@ -230,7 +230,6 @@ export class callRdBoardItemData {
   }
 }
 
-
 export const boardList: callRdBoardItemData[] = [
   new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "1"),
   new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "2"),
@@ -244,4 +243,37 @@ export const boardList: callRdBoardItemData[] = [
   new callRdBoardItemData(CALL_KEY_BOARD_RE_DIAL, "重播"),
   new callRdBoardItemData(CALL_KEY_BOARD_COMMON, "0"),
   new callRdBoardItemData(CALL_KEY_BOARD_DIAL, "拨号"),
+]
+
+// IP数字按键
+export const CALL_KEY_BOARD_IP_NUM = 1
+// IP取消按键
+export const CALL_KEY_BOARD_IP_CANCEL = 2
+// IP完成按键
+export const CALL_KEY_BOARD_IP_FINISH = 3
+// IP键盘种类实体
+export class IpBoardItemData {
+  type: number = 1
+  valueName: string
+
+  constructor(type: number,
+    valueName: string) {
+    this.type = type
+    this.valueName = valueName
+  }
+}
+
+export const ipBoardList: IpBoardItemData[] = [
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "1"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "2"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "3"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "4"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "5"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "6"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "7"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "8"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "9"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_CANCEL, "取消"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_NUM, "0"),
+  new callRdBoardItemData(CALL_KEY_BOARD_IP_FINISH, ""),
 ]

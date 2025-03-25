@@ -1,8 +1,21 @@
 import { ItemSetArrowView } from "../../itemview/ItemSetArrowView"
-import { router } from "@kit.ArkUI"
+import { ComponentContent, router } from "@kit.ArkUI"
+import { IPKeyboardBuilder } from "../../common/dialog/dialogview/IPKeyboardDialog";
+import { PromptDialogHelper } from "../../common/helper/PromptDialogHelper";
 
 @ComponentV2
 export struct EngineeringSetList {
+  private ctx: UIContext = this.getUIContext();
+  private contentNode: ComponentContent<Object> =
+    new ComponentContent(this.ctx, wrapBuilder(IPKeyboardBuilder));
+
+  aboutToAppear(): void {
+    PromptDialogHelper.setContext(this.ctx);
+    PromptDialogHelper.setContentNode(this.contentNode);
+    PromptDialogHelper.setOptions({ alignment: DialogAlignment.Center,onDidDisappear:()=>{
+    }})
+  }
+
   build() {
     Scroll() {
       Column() {
@@ -54,7 +67,10 @@ export struct EngineeringSetList {
           .width('100%')
 
         Column() {
-          ItemSetArrowView({ name: "网络门前机" })
+          ItemSetArrowView({ name: "网络参数设置" })
+            .onClick(()=>{
+              PromptDialogHelper.openDialog()
+            })
           Divider().height(1).color('#262626').margin({ left: 48, right: 48 })
           ItemSetArrowView({ name: "设备编号设置" })
         }
